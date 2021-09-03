@@ -1,12 +1,9 @@
-function outer() {
-    var count = 0;
+var num = 20;
 
-    return function inner() {
-        count++;
-        console.log(count);
-    }
+function squeare(num) {
+    var result = num * num;
+    return result;
 }
 
-var call1 = outer();
-call1();
-call1();
+var squeare = squeare(num);
+console.log(squeare);
