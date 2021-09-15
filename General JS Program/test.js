@@ -1,9 +1,6 @@
-var num = 20;
 
-function squeare(num) {
-    var result = num * num;
-    return result;
-}
+ greeter = "say hello";
 
-var squeare = squeare(num);
-console.log(squeare);
+ console.log (greeter);
+
+ var greeter;
