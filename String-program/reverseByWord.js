@@ -6,7 +6,7 @@ const reverseWords = str => {
     }).join(" ");
     return reversed;
 };
-console.log(reverseWords(str));
+console.log(reverseWords('2222'+str));
 
 //----------------- 2nd Method ---------------------
 console.log('------------2d Method-----------');

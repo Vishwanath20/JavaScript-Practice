@@ -1,12 +1,12 @@
 function revString(str) {
 str = str.split('');
-console.log(str);
+//console.log(str);
 
 str = str.reverse();
-console.log(str);
+//console.log(str);
 
 str = str.join('');
-console.log(str);
+//console.log(str);
 return str;
 }
 

@@ -1,6 +1,11 @@
+var str = "my name is vishu";
 
- greeter = "say hello";
+var strArr = str.split(' ');
 
- console.log (greeter);
+console.log(strArr);
 
- var greeter;
+strArr.map( data => {
+    data.split('').reverse().join('');
+    console.log(data);
+});
+// console.log(strArr);
