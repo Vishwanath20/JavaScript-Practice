@@ -1,0 +1,37 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<button onclick="getLocation()">Cick for Attendance.</button>
+
+<p id="getLatLong"></p>
+<p id="dist"></p>
+</body>
+
+	<script>
+var x = document.getElementById("getLatLong");
+var y = document.getElementById("distance");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	 var lt1 = position.coords.latitude; // Student Latitude
+	var ln1 = position.coords.longitude; // Student Longitude
+	x.innerHTML = "your Latitude: is " + lt1 + "<br>your Longitude is: " +ln1 ;
+	window.open(`lat:${lt1} and long::${ln1}`, "", "width=300,height=500");
+}
+</script>
+
+</html>

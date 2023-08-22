@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function degreesToRadians(degrees) {
+  var radians = (degrees * Math.PI)/180;
+  return radians;
+}
+
+// Function takes two objects, that contain coordinates to a starting and destination location.
+function calcDistance (startingCoords, destinationCoords){
+  let startingLat = degreesToRadians(startingCoords.latitude);
+  let startingLong = degreesToRadians(startingCoords.longitude);
+  let destinationLat = degreesToRadians(destinationCoords.latitude);
+  let destinationLong = degreesToRadians(destinationCoords.longitude);
+
+  // Radius of the Earth in kilometers
+  let radius = 6571;
+
+  // Haversine equation
+  let distanceInKilometers = Math.acos(Math.sin(startingLat) * Math.sin(destinationLat) +
+  Math.cos(startingLat) * Math.cos(destinationLat) *
+  Math.cos(startingLong - destinationLong)) * radius;
+
+  return distanceInKilometers;
+}
+
+let sCoords = {
+latitude: 21.722313248113018,
+longitude: 83.04995295441535
+}
+
+let dCoords = {
+latitude: 21.722443937893402,
+longitude:  83.05016075768893
+}
+let dist = calcDistance(sCoords, dCoords)
+
+console.log("Distance is:::"+dist*1000);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

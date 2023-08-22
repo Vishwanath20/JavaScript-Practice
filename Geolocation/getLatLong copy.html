@@ -1,0 +1,67 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<button onclick="getLocation()">Cick for Attendance.</button>
+
+<p id="getLatLong"></p>
+<p id="dist"></p>
+</body>
+
+	<script>
+var x = document.getElementById("getLatLong");
+var y = document.getElementById("distance");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+
+	var lt = 21.722327345880437; // office latitude
+	var ln =  83.04994936706755; // // office lagitude
+	
+	 var lt1 = position.coords.latitude; // Student Latitude
+	var ln1 = position.coords.longitude; // Student Longitude
+	//var lt1 = 21.72239711461308;
+	//var ln1 = 83.05013846280204;
+
+
+	x.innerHTML = "your Latitude: is " + lt1 + "<br>your Longitude is: " +ln1 ;
+
+	var dLat = (lt - lt1) * Math.PI / 180;
+	var dLon = (ln - ln1) * Math.PI / 180;
+	var a = 0.5 - Math.cos(dLat) / 2 + Math.cos(lt1 * Math.PI / 180) * Math.cos(lt * Math.PI / 180) * (1 - Math.cos(dLon)) / 2;
+
+	// To get the distance in KM
+	var d = Math.round(6371000 * 2 * Math.asin(Math.sqrt(a))); 
+
+	console.log("distance from two points is: "+d+" meters");
+
+	// var distInMeter = d * 1000;
+	// console.log("distance from two points is: "+distInMeter+" meter");
+
+	// y.innerHTML = d * 1000;
+
+	if(d < 20){
+		alert("Attandance Successful!!!");
+	}
+	else{
+		alert("Please present inside office location and try again!!!")
+	}
+	
+	 
+}
+</script>
+
+</html>

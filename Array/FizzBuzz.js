@@ -8,7 +8,7 @@ function fizzBuzz(n1, n2) {
             console.log('Fizz');
             continue;
         } else if(find5){
-            console.log('Buzz');
+            console.log('Buzz');  
         } else {
             console.log(i);
         }

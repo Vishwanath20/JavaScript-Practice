@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Check Location
+    </title>
+
+    <script type="text/javascript">
+        function arePointsNear(checkPoint, centerPoint, km) {
+    var ky = 40000 / 360;
+    var kx = Math.cos(Math.PI * centerPoint.lat / 180.0) * ky;
+    var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
+    var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
+
+    console.log(Math.sqrt(dx * dx + dy * dy)*1000);
+    return Math.sqrt(dx * dx + dy * dy) <= km;
+}
+
+var employeePoint = { lat:21.72231450727631, lng:83.0499524366  };
+var centerPoint = { lat: 21.722397980584915, lng: 83.05013750901782 };
+
+var n = arePointsNear(employeePoint, centerPoint, 0.02);
+
+console.log(n);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+var lt = 21.722414908486044;
+var lt1 = 21.722313370064008;
+var ln =83.05013609165967;
+var ln1 = 83.04994967813415;
+var dLat = (lt - lt1) * Math.PI / 180;
+var dLon = (ln - ln1) * Math.PI / 180;
+var a = 0.5 - Math.cos(dLat) / 2 + Math.cos(lt1 * Math.PI / 180) * Math.cos(lt * Math.PI / 180) * (1 - Math.cos(dLon)) / 2;
+
+// To get the distance in meter
+var d = Math.round(6371000 * 2 * Math.asin(Math.sqrt(a))); 
+console.log(d);
+$('#distance').html("d"+d);
+
+	</script>
+</head>
+<body>
+<div id="distance"></div>
+
+</body>
+</html> -->
+
+//------------------------
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+<p id="dist"></p>
+<script>
+var x = document.getElementById("demo");
+var y = document.getElementById("dist");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	var lat = position.coords.latitude;
+	var lng = position.coords.longitude;
+  x.innerHTML = "Latitude: " + lat + 
+  "<br>Longitude: " +lng ;
+
+
+var lt = 21.721632234771207;
+var ln =  83.05032738575892;
+var lt1 = position.coords.latitude;
+var ln1 = position.coords.longitude;
+var dLat = (lt - lt1) * Math.PI / 180;
+var dLon = (ln - ln1) * Math.PI / 180;
+var a = 0.5 - Math.cos(dLat) / 2 + Math.cos(lt1 * Math.PI / 180) * Math.cos(lt * Math.PI / 180) * (1 - Math.cos(dLon)) / 2;
+
+// To get the distance in meter
+var d = Math.round(6371000 * 2 * Math.asin(Math.sqrt(a))); 
+console.log(d);
+//$('#distance').html("d"+d);
+
+y.innerHTML = d;
+
+
+getLoc();
+}
+
+function getLoc(){
+  if ("geolocation" in navigator) {
+  // Prompt user for permission to access their location
+  navigator.geolocation.watchPosition(
+    // Success callback function
+    function(position) {
+      // Get the user's latitude and longitude coordinates
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      // Update the map with the user's new location
+      console.log(`Latitude: ${lat}, longitude: ${lng}`);
+    },
+    // Error callback function
+    function(error) {
+      // Handle errors, e.g. user denied location sharing permissions
+      console.error("Error getting user location:", error);
+    }
+  );
+} else {
+  // Geolocation is not supported by the browser
+  console.error("Geolocation is not supported by this browser.");
+}
+}
+
+
+
+</script>

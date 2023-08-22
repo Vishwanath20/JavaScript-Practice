@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Automatic Webcam Video Recorder</title>
+</head>
+
+<body>
+    <video id="videoElement" width="640" height="480" autoplay></video>
+    <script src="script.js"></script>
+</body>
+
+<script>
+    const videoElement = document.getElementById("videoElement");
+    let mediaRecorder;
+    let chunks = [];
+
+    function startRecording() {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then((stream) => {
+                videoElement.srcObject = stream;
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        chunks.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    const videoBlob = new Blob(chunks, { type: "video/webm" });
+                    chunks = [];
+
+                    // Download the recorded video
+                    const downloadLink = document.createElement("a");
+                    downloadLink.href = URL.createObjectURL(videoBlob);
+                    downloadLink.download = "recorded_video.webm";
+                    downloadLink.click();
+                };
+
+                mediaRecorder.start();
+                setTimeout(() => {
+                    stopRecording();
+                }, 20000); // 20 seconds
+            })
+            .catch((error) => {
+                console.error("Error accessing the webcam:", error);
+            });
+    }
+
+    function stopRecording() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+        }
+
+        // Start recording again after 2 minutes
+        setTimeout(() => {
+            startRecording();
+        }, 120000); // 2 minutes
+    }
+
+    // Start the initial recording
+    startRecording();
+
+</script>
+
+</html>
