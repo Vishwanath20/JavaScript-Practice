@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam module</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body onload=" startRecording()">
+    <div class="container">
+        <header>
+            <div class="logo">LakshyaSoftech</div>
+            <div class="exam-name">Powered LakshyaSoftech</div>
+            <div class="timer-box">
+                <p>Time Left</p>
+                <ul>
+                    <li id="hrs">00</li>:
+                    <li id="mins">00</li>:
+                    <li id="sec">00</li>
+
+                  
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div class="main">
+                <nav>
+                    <label>View in</label>
+                    <div>
+                        
+                        <div id="google_translate_element"></div>
+                    </div>
+                </nav>
+                <div class="sub-main">
+                    <div class="question-box">
+                        <p id="questions"></p>
+                        <img id="ImageNM" src="" alt="" srcset="">
+                    </div>
+                    <div class="question-box">
+                        <p id="description"></p>
+
+                    </div>
+                    <div class="options" id="load-question">
+                    </div>
+                </div>
+
+            </div>
+            <div class="side-preview">
+                <nav>
+                    <video autoplay id="vid"></video>
+                    <label>Lakshya Softech</label>
+                </nav>
+
+                <div class="selected-ques" id="question-number-button">
+                  
+                </div>
+            </div>
+
+        </section>
+        <footer>
+            <div class="first-btn">
+                <button id="prevBtn">PREVIOUSE</button>
+                <button id="nextBtn">SAVE & NEXT</button>
+                <button  onclick="clearResponse(data)">CLEAR RESPONCE</button>
+
+            </div>
+            <div class="second-btn">
+                <button id="submitBtn" onclick="submitData()">SUBMIT</button>
+            </div>
+        </footer>
+    </div>
+ 
+
+    <div class="my-spinner" style="width: 4rem; height: 4rem;" role="status">
+        <img  style="display: none;" height="150" src="./images/loader/loader.gif" alt="" srcset="">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+</body>
+<script>
+
+    const examDuration = 60 * 120; // 120 minutes
+    let remainingTime;
+    // Check if remaining time is stored in local storage
+    const storedRemainingTime = localStorage.getItem('remainingTime');
+    if (storedRemainingTime !== null) {
+        remainingTime = parseInt(storedRemainingTime, 10);
+    } else {
+        remainingTime = examDuration;
+    }
+
+    console.log(`remainingTime::`,remainingTime);
+
+
+    function updateTimer() {
+        const hours = Math.floor(remainingTime / 3600);
+
+        // const minutes = Math.floor(remainingTime / 60);
+        const minutes = Math.floor((remainingTime % 3600) / 60);
+        const seconds = remainingTime % 60;
+
+        const hoursDisplay = String(hours).padStart(2, '0');
+        const minutesDisplay = String(minutes).padStart(2, '0');
+        const secondsDisplay = String(seconds).padStart(2, '0');
+
+        console.log(`hoursDisplay::`,hoursDisplay);
+
+      //  document.getElementById('countdown').textContent = `${hoursDisplay}:${minutesDisplay}:${secondsDisplay}`;
+
+        document.getElementById('hrs').textContent = hoursDisplay;
+        document.getElementById('mins').textContent = minutesDisplay;
+        document.getElementById('sec').textContent = secondsDisplay;
+        if (remainingTime > 0) {
+            remainingTime--;
+            localStorage.setItem('remainingTime', remainingTime); // Store remaining time in local storage
+            setTimeout(updateTimer, 1000); // Update every 1 second
+        } else {
+            // Time's up! Handle the exam submission or ending here
+            alert('Time is up!');
+            submitData();
+            localStorage.removeItem('remainingTime'); // Clear remaining time from local storage
+        }
+    }
+
+    // Start the timer when the page loads
+    window.onload = updateTimer;
+
+
+
+</script>
+
+
+
+<script>
+    duration =	timeConvert(120)
+    $("#set-exam-left").text(duration)
+    var data = null;
+    $(document).ready(
+    
+        fetch("http://localhost:3000/get-questions").then(response => response.json()).then(res => {
+            // data = json.recordset.recordset;
+            // console.log(data);
+            // LoadQuize(data, 0)
+
+            console.log(res.data.recordset);
+				data = res.data.recordset;
+				LoadQuize(data, 0)
+        })
+    );
+    //Next button................................................
+
+    $("#nextBtn").on("click", function () {
+        var val = $("input[type='radio']:checked").val();
+        $("#load-question").html(' ')
+
+        Next(data, val)
+
+    })
+    //Previous button............................................
+
+    $("#prevBtn").on("click", function () {
+        var val = $("input[type='radio']:checked").val();
+        $("#load-question").html(' ')
+        Previous(data, val)
+    })
+
+    const videoElement = document.getElementById("vid");
+    const fileSizeSpan = document.getElementById('fileSize');
+    let mediaRecorder;
+    let chunks = [];
+    let isRecording = false;
+
+    function startRecording() {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then((stream) => {
+                videoElement.srcObject = stream;
+                mediaRecorder = new MediaRecorder(stream, { videoBitsPerSecond: 50000 });
+
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        chunks.push(event.data);
+                        // Calculate file size in KB
+                        // fileSizeSpan.innerText = (chunks.reduce((acc, cur) => acc + cur.size, 0) / 1024).toFixed(2) + ' KB';
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    
+                    const videoBlob = new Blob(chunks, { type: "video/webm" });
+                    let recording = new File([videoBlob], 'recording.webm', { type: 'video/webm' });
+
+                    let data = new FormData();
+                    data.append('videofile', recording);
+
+                    //send fetch along with cookies
+                    fetch('http://localhost:4000/post-videos', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        body: data
+                    }).then(response => response.json()).then(res =>{
+                        console.log(res)
+                    })
+                    
+                    console.log("videoBlob-------", videoBlob);
+                    chunks = [];
+
+                    
+                };
+
+                mediaRecorder.start();
+                isRecording = true;
+            })
+            .catch((error) => {
+                console.error("Error accessing the webcam:", error);
+            });
+    }
+    function start() {
+        mediaRecorder.start()
+    }
+    function stopRecording() {
+        if (mediaRecorder && isRecording) {
+            mediaRecorder.stop();
+            isRecording = false;
+        }
+    }
+
+    // Set the recording interval in milliseconds (e.g., 10000 for 10 seconds).
+    const recordingInterval = 20000;
+    setInterval(() => {
+        if (isRecording) {
+            stopRecording();
+             takeScreenshot()
+        } else {
+            startRecording()
+        }
+    }, recordingInterval);
+
+
+    function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+googleTranslateElementInit()
+
+</script>
+</html>

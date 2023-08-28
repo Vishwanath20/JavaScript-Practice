@@ -1,0 +1,660 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text your Knowlege [Test-Project]</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Bitter:400,700|Lobster');
+
+/* 
+font-family: 'Lobster', cursive;
+font-family: 'Bitter', serif;
+*/
+
+html,body,div,h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    background: url('http://i280.photobucket.com/albums/kk185/moudda/1.jpg');
+    background-size: contain; 
+}
+body {
+    width: 96%;
+    margin: 1px auto;
+    font-family: 'Bitter', serif;
+    color: white;
+    font-size: 100%;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    box-shadow: 0px 0px 5px 3px black;
+   /* background: rgba(33,35,32,0.5); */
+}
+/* styling the questions containers */
+.info {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    color: darkgrey;
+}
+.wraper {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+.group{
+    padding: 1em;
+    border-bottom: 1px solid darkgray;
+    
+}
+.inner-group {
+    justify-content: space-around;
+    padding: .5em 1em;
+}
+h2 {
+    text-indent: -13px;
+    margin: 0.3em 0;
+    font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
+    font-size: 1.5em;
+    color: darkgray;
+}
+/* styling text field */
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+input[type="text"] {
+    display: block;
+    margin-top: 0.5em;
+    background: rgb(33,32,35);
+    height: 2.2em;
+    width: 30%;
+    border: 1px solid black;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+input[type="text"]:focus {
+    background: black;
+    border: 1px solid darkgray;
+    width: 100%;
+    color: white;
+}
+input[type="text"]:hover {
+    border: 1px solid gray;
+}
+select {
+    width: 60%;
+    background: rgb(33,32,35);
+    height: 1.7em;
+    color: aqua;
+}
+select:hover {
+    cursor: pointer;
+    border: 1px solid darkgray;
+}
+/* Styling the result field */
+#total_result {
+    display: block;
+    text-align: center;
+}
+#final-result {
+    display: block;
+    height: 15em;
+    margin: 0.1em;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+#result_1 , #result_2 , #result_3 {
+    height: 15em;
+    width: 33%;
+    padding: 1.5em;
+}
+label[for="estimate-result"] {
+    color: black;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgb(33,32,35);
+}
+.second-container {
+    padding: 1em;
+}
+/* Styling the button */
+input[type="submit"] {
+    background: linear-gradient(top,rgb(33,32,35),rgb(0,0,0));
+    background: -webkit-linear-gradient(top,rgb(33,32,35),rgb(0,0,0));
+    background: -moz-linear-gradient(top,rgb(33,32,35),rgb(0,0,0));
+    padding: .3em 1.7em;
+    border: 1px solid rgb(33,32,35);
+    font-family: 'Lobster', cursive;
+    color: white;
+    font-size: 1.8em;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+input[type="submit"]:hover {
+    background: linear-gradient(top,rgb(0,0,0),rgb(33,32,35),rgb(0,0,0));
+    background: -webkit-linear-gradient(top,rgb(0,0,0),rgb(33,32,35),rgb(0,0,0));
+    background: -moz-linear-gradient(top,rgb(0,0,0),rgb(33,32,35),rgb(0,0,0));
+    background: -o-linear-gradient(top,rgb(0,0,0),rgb(33,32,35),rgb(0,0,0));
+    border-radius: 8px;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    color: aqua;
+    text-shadow: 0px 0px 1px black,1px 1px 2px black,2px 2px 3px black;
+    cursor: pointer;
+    box-shadow: -2px 0px 5px black, 2px 0px 5px black;
+}
+input[type="submit"]:active {
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    position: relative;
+    top: 2px;
+}
+#degr,#cong {
+    font-family: "New Times Roman", serif;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+    -moz-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    transform-origin: center;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -o-transform-origin: center;
+    text-align: center;
+    overflow: hidden;
+}
+#show_result {
+    font-size: 3em;
+    color: aqua;
+    font-weight: 800;
+    text-shadow: 1px 1px 1px black, 2px 2px 2px black,3px 3px 3px black, 4px 4px 4px black,5px 5px 5px black, 6px 6px 6px black, 7px 7px 7px black;
+    overflow: hidden;
+}
+#result_side_1 {
+    padding: 2em 0 0 2.5em;
+    overflow: hidden;
+}
+#name, #age, #place {
+    text-align: left;
+    color: aqua;
+    font-size: 1.9em;
+    font-family: "New Times Roman", serif;
+    margin-bottom: 0.2em;
+    text-shadow: 1px 1px 1px black,2px 2px 2px black,3px 3px 3px black;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transform: translateX(-2000%);
+  -webkit-transform: translateX(-2000%);
+    -moz-transform: translateX(-2000%);
+    -o-transform: translateX(-2000%);
+    -webkit-transform-origin: left;
+    -moz-transform-origin: left;
+    -o-transform-origin: left;
+    transform-origin: left;
+}
+
+#pname, #page, #pplace {
+    margin-left: 0.4em;
+    color: black;
+    font-weight: 800;
+    text-shadow: 1.5px 1.5px 1.5px rgb(33,32,35), 2.5px 2.5px 2.5px rgb(33,32,35);
+}
+#result_side_2 {
+    padding: .5em;
+    overflow: hidden;
+}
+#lineone, #linetwo, #linethree {
+    text-align: left;
+    margin-bottom: .2em;
+    font-family: 'Bitter', serif;
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+    text-shadow: 1.5px 1.5px 1.5px rgb(33,35,32),2.5px 2.5px 2.5px rgb(33,35,32); 
+    transition: all 1s;
+    transform: translateX(1000%);
+  -webkit-transform: translateX(1000%);
+    -moz-transform: translateX(1000%);
+    -o-transform: translateX(1000%);
+    -webkit-transform-origin: right;
+    -moz-transform-origin: right;
+    -o-transform-origin: right;
+    transform-origin: right;
+}
+#crid {
+    margin-left: .5em;
+    font-size: 150%;
+    font-family: 'Bitter', serif;
+    font-weight: bold;
+    transition: all 1s;
+}
+#lineone::first-letter, #linetwo::first-letter {
+    color: black;
+    font-size: 140%;
+}
+@keyframes aut{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+
+<body onload="naming()">
+    <div class="main-container">
+        <!-- Main container -->
+        <p class="info">This is just a project about how to use javascript to collect the informations intered by user
+            and calculate the final result</p>
+        <form id="quest-f">
+            <div class="wraper">
+                <div class="group">
+                    <div class="inner-group">
+                        <h2> Question I</h2>
+                        <label for="countries">How many countries in the world?</label><br>
+                        <p><input type="radio" name="Q_countries" value="5" id="country_1" />A).. 195</p>
+                        <p><input type="radio" name="Q_countries" value="0" id="country_2" />B).. 150</p>
+                        <p><input type="radio" name="Q_countries" value="0" id="country_3" />C).. over 150</p>
+                        <p><input type="radio" name="Q_countries" value="0" id="country_4" />D).. 189</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question II</h2>
+                        <label for="cities">How many cities in the world?</label><br>
+                        <p><input type="radio" name="Q_cities" value="2" id="cities_1" />A).. Over 4000 City</p>
+                        <p><input type="radio" name="Q_cities" value="0" id="cities_2" />B).. 3995 City</p>
+                        <p><input type="radio" name="Q_cities" value="5" id="cities_3" />C).. 4416 City</p>
+                        <p><input type="radio" name="Q_cities" value="0" id="cities_4" />D).. 4318 City</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question III</h2>
+                        <label for="pixels">How many pixels the human eye are?</label><br>
+                        <p><input type="radio" name="Q_pixels" value="0" id="pixel_1" />A).. 324 MegaPixel</p>
+                        <p><input type="radio" name="Q_pixels" value="5" id="pixel_2" />B).. 576 MegaPixel</p>
+                        <p><input type="radio" name="Q_pixels" value="0" id="pixel_3" />C).. 1076 MegaPixel</p>
+                        <p><input type="radio" name="Q_pixels" value="0" id="pixel_4" />D).. 1152 MegaPixel</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question IV</h2>
+                        <label for="planets">How many planets in our solar system?</label><br>
+                        <p><input type="radio" name="Q_planets" value="0" id="planet_1" />A).. 8 Planets</p>
+                        <p><input type="radio" name="Q_planets" value="5" id="planet_2" />B).. 9 Planets</p>
+                        <p><input type="radio" name="Q_planets" value="0" id="planet_3" />C).. 10 Planets</p>
+                        <p><input type="radio" name="Q_planets" value="0" id="planet_4" />D).. 11 Planets</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question V</h2>
+                        <label for="galaxy">What galaxy we're in?</label><br>
+                        <select id="galaxy">
+                            <option disabled selected value="">-- Select Option --</option>
+                            <option value="0">Solar Galaxy</option>
+                            <option value="0">Cosmic Galaxy</option>
+                            <option value="5">Milky way Galaxy</option>
+                        </select>
+                    </div>
+                </div> <!-- Questions group container -->
+                <div class="group">
+                    <div class="inner-group">
+                        <h2> Question VI</h2>
+                        <label for="time_to_mars">How many days it takes to reach Mars?</label><br>
+                        <select id="time_to_mars">
+                            <option disabled selected value=" "> -- Select option -- </option>
+                            <option value="0">130 - 150 Days</option>
+                            <option value="0">Less than 150 Days</option>
+                            <option value="5">150 - 300 Days</option>
+                            <option value="0">More than 300 Days</option>
+                        </select>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question VII</h2>
+                        <label for="earth">How many hours the day on Earth?</label><br>
+                        <p><input type="radio" name="Q_earth" value="0" id="earth_1" />A).. 23 Hours</p>
+                        <p><input type="radio" name="Q_earth" value="5" id="earth_2" />B).. 24 Hours</p>
+                        <p><input type="radio" name="Q_earth" value="0" id="earth_3" />C).. 25 Hours</p>
+                        <p><input type="radio" name="Q_earth" value="0" id="earth_4" />D).. 26 Hours</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question VIII</h2>
+                        <label for="mars">How many hours the day on Mars?</label><br>
+                        <p><input type="radio" name="Q_mars" value="0" id="mars_1" />A).. 20,40 Hours</p>
+                        <p><input type="radio" name="Q_mars" value="5" id="mars_2" />B).. 24,40 Hours</p>
+                        <p><input type="radio" name="Q_mars" value="0" id="mars_3" />C).. 30,40 Hours</p>
+                        <p><input type="radio" name="Q_mars" value="0" id="mars_4" />D).. 36,40 Hours</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question IX</h2>
+                        <label for="planet_earth">What is the number of our planet in the solar system?</label><br>
+                        <p><input type="radio" name="Q_planet_earth" value="0" id="planet_earth_1" />A).. 2</p>
+                        <p><input type="radio" name="Q_planet_earth" value="5" id="planet_earth_2" />B).. 3</p>
+                        <p><input type="radio" name="Q_planet_earth" value="0" id="planet_earth_3" />C).. 4</p>
+                        <p><input type="radio" name="Q_planet_earth" value="0" id="planet_earth_4" />D).. 5</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question X</h2>
+                        <label for="mass-earth-mars">who's bigger Earth or Mars?</label><br>
+                        <select id="mass-earth-mars">
+                            <option disabled selected value="">-- Select Option --</option>
+                            <option value="5">Earth</option>
+                            <option value="0">Mars</option>
+                        </select>
+                    </div>
+                </div> <!-- Questions group container -->
+                <div class="group">
+                    <div class="inner-group">
+                        <h2> Question XI</h2>
+                        <label for="pop-world">The population of the world is?</label><br>
+                        <p><input type="radio" name="Q_pop_world" value="0" id="pop_world_1" />A).. 6,5 Billion</p>
+                        <p><input type="radio" name="Q_pop_world" value="0" id="pop_world_2" />B).. 7 Billion</p>
+                        <p><input type="radio" name="Q_pop_world" value="2" id="pop_world_3" />C).. more than 7 Billion
+                        </p>
+                        <p><input type="radio" name="Q_pop_world" value="5" id="pop_world_4" />D).. 7,5 Billion</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XII</h2>
+                        <label for="largest_cities">The largest city in the world?</label><br>
+                        <p><input type="radio" name="Q_l_cities" value="5" id="l_cities_1" />A).. Tokyo</p>
+                        <p><input type="radio" name="Q_l_cities" value="0" id="l_cities_2" />B).. New-York</p>
+                        <p><input type="radio" name="Q_l_cities" value="0" id="l_cities_3" />C).. Sao Paulo</p>
+                        <p><input type="radio" name="Q_l_cities" value="0" id="l_cities_4" />D).. Seoul</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XIII</h2>
+                        <label for="oldest-city">The oldest continuously inhabited city in the world?</label><br>
+                        <p><input type="radio" name="Q_o_city" value="5" id="o_city_1" />A).. Damascus</p>
+                        <p><input type="radio" name="Q_o_city" value="0" id="o_city_2" />B).. Jericho</p>
+                        <p><input type="radio" name="Q_o_city" value="0" id="o_city_3" />C).. Aleppo</p>
+                        <p><input type="radio" name="Q_o_city" value="0" id="o_city_4" />D).. Athens</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XIV</h2>
+                        <label for="balloun">If a balloun filled with helium, It goes up or down and why?</label><br>
+                        <p><input type="radio" name="Q_balloun" value="5" id="balloun_1" />A).. Up, Because Helium
+                            lighter than air</p>
+                        <p><input type="radio" name="Q_balloun" value="0" id="balloun_2" />B).. Up, Because of the
+                            balloun weight and air pressure under it</p>
+                        <p><input type="radio" name="Q_balloun" value="0" id="balloun_3" />C).. Down, Because of the
+                            weight of the balloun</p>
+                        <p><input type="radio" name="Q_balloun" value="0" id="balloun_4" />D).. Down, Because Helium
+                            weight are bigger than air weight</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XV</h2>
+                        <label for="math_1">What's the result of the equation?</label><br>
+                        <p>3 + 5 * 9 - 6 + 9/3 * 5 + 9 * 0 + 50</p>
+                        <input type="text" name="Q_math_1" placeholder="Enter your Answer" class="txt-f" id="math_1" />
+                    </div>
+                </div> <!-- Questions group container -->
+                <div class="group">
+                    <div class="inner-group">
+                        <h2> Question XVI</h2>
+                        <label for="math_2">X = 5, Y = x -3, Z = x - y * x/y + 5 - x * 3 - y</label><br>
+                        <p>Find the value of Z </p>
+                        <input type="text" name="Q_math_2" placeholder="Enter your Answer" class="txt-f" id="math_2" />
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XVII</h2>
+                        <label for="f_b">Who invented Facebook?</label><br>
+                        <select id="f_b">
+                            <option disabled selected value="">-- Select Option --</option>
+                            <option value="0">Bill Gates</option>
+                            <option value="0">Steve Jobs</option>
+                            <option value="5">Mark Zukerberg</option>
+                        </select>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XVIII</h2>
+                        <label for="lang">What is the most popular language in the world?</label><br>
+                        <p><input type="radio" name="Q_lang" value="5" id="lang_1" />A).. English</p>
+                        <p><input type="radio" name="Q_lang" value="0" id="lang_2" />B).. French</p>
+                        <p><input type="radio" name="Q_lang" value="0" id="lang_3" />C).. German</p>
+                        <p><input type="radio" name="Q_lang" value="0" id="lang_4" />D).. Spanish</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XIX</h2>
+                        <label for="football_1">Who won the world cup in 1994?</label><br>
+                        <p><input type="radio" name="Q_football_1" value="5" id="footbal_1" />A).. Brasil</p>
+                        <p><input type="radio" name="Q_football_1" value="0" id="footbal_2" />B).. France</p>
+                        <p><input type="radio" name="Q_football_1" value="0" id="footbal_3" />C).. Germany</p>
+                        <p><input type="radio" name="Q_football_1" value="0" id="footbal_4" />D).. Italy</p>
+                    </div> <!-- Container of every question -->
+                    <div class="inner-group">
+                        <h2> Question XX</h2>
+                        <label for="football_2">Who's the second most teams have won the world cup?</label><br>
+                        <p><input type="radio" name="Q_football_2" value="0" id="football-1" />A).. Brasil</p>
+                        <p><input type="radio" name="Q_football_2" value="0" id="football-2" />B).. France</p>
+                        <p><input type="radio" name="Q_football_2" value="5" id="football-3" />C).. Germany</p>
+                        <p><input type="radio" name="Q_football_2" value="5" id="football-4" />D).. Italy</p>
+                    </div> <!-- container of every question -->
+                </div> <!-- Questions group container -->
+            </div> <!-- wraper -->
+            <div id="total_result">
+                <div class="second-container">
+                    <label for="estimate-result"></label>
+                    <input type="submit" name="estimate" value="Get your result" id="estimate-result" />
+                </div> <!-- the container of the button -->
+                <div id="final-result">
+                    <div id="result_1">
+                        <div id="result_side_1">
+                            <p id="name">Name:<span id="pname"></span></p>
+                            <p id="age">Age:<span id="page"></span></p>
+                            <p id="place">Place:<span id="pplace"></span></p>
+                        </div>
+                    </div>
+                    <div id="result_2">
+                        <div id="show_result">
+                            <p id="cong"></p>
+                            <p id="degr"></p>
+                        </div>
+                    </div>
+                    <div id="result_3">
+                        <div id="result_side_2">
+                            <p id="lineone">This project was created out of boredom</p>
+                            <p id="linetwo"> I only know less than 5% of JavaScript, So i made this project to help me
+                                practice and understand what i've learned</p>
+                            <p id="linethree"> Created By<span id="crid">Moses Ally</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Result container -->
+        </form> <!-- the form contain all questions -->
+    </div>
+</body>
+<script>
+    "user strict";
+          function naming() {
+            var userInput = document.getElementById("pname").innerHTML = prompt("Please enter your name!");
+                if (userInput === "") {
+                    alert("Please enter your name!");
+                    document.getElementById("pname").innerHTML = prompt("Your Name -_-");
+                }
+            var age = document.getElementById("page").innerHTML = parseInt(prompt("your age!"));
+            var place = document.getElementById("pplace").innerHTML = prompt("Your location!");
+                if (place === "") {
+                    document.getElementById("pplace").innerHTML = "Unknown";
+                }
+            }
+        document.getElementById('quest-f').addEventListener('submit', estimateFormResult);
+function estimateFormResult(event) {
+    event.preventDefault();
+
+    
+    var gala = parseInt(document.getElementById("galaxy").value, 10) || 0,
+        tiToMa = parseInt(document.getElementById("time_to_mars").value, 10) || 0,
+        massMarEar = parseInt(document.getElementById("mass-earth-mars").value, 10) || 0,
+        mat1 = parseInt(document.getElementById("math_1").value, 10) || 0,
+        mat2 = parseInt(document.getElementById("math_2").value, 10) || 0,
+        facBoo = parseInt(document.getElementById("f_b").value, 10) || 0,
+        metho1,
+        metho2,
+        method1 = document.getElementById("quest-f").Q_countries,
+        questionCountries,
+        method2 = document.getElementById("quest-f").Q_cities,
+        questionCities,
+        method3 = document.getElementById("quest-f").Q_pixels,
+        questionPixels,
+        method4 = document.getElementById("quest-f").Q_planets,
+        questionPlanets,
+        method5 = document.getElementById("quest-f").Q_earth,
+        questionEarth,
+        method6 = document.getElementById("quest-f").Q_mars,
+        questionMars,
+        method7 = document.getElementById("quest-f").Q_planet_earth,
+        questionPlanetEarth,
+        method8 = document.getElementById("quest-f").Q_pop_world,
+        questionPopWorld,
+        method9 = document.getElementById("quest-f").Q_l_cities,
+        questionLcities,
+        method10 = document.getElementById("quest-f").Q_o_city,
+        questionOcity,
+        method11 = document.getElementById("quest-f").Q_balloun,
+        questionBalloun,
+        method12 = document.getElementById("quest-f").Q_lang,
+        questionLang,
+        method13 = document.getElementById("quest-f").Q_football_1,
+        questionFootball1,
+        method14 = document.getElementById("quest-f").Q_football_2,
+        questionFootball2;
+        
+    for (var x = 0; x < method1.length; x++) {
+        if (method1[x].checked == true) {
+            questionCountries = parseInt(method1.value);
+        } else if (questionCountries == undefined) {
+            questionCountries = 0;
+        }
+    } 
+    for (var z = 0; z < method2.length; z++ ) {
+        if (method2[z].checked == true) {
+            questionCities = parseInt(method2.value);
+        } else if (questionCities == undefined) {
+            questionCities = 0;
+        }
+    }
+    for (var d = 0; d < method3.length; d++) {
+        if (method3[d].checked == true) {
+            questionPixels = parseInt(method3.value);
+        } else if (questionPixels == undefined) {
+            questionPixels = 0;
+        }
+    }
+    for (var s = 0; s < method4.length; s++) {
+        if (method4[s].checked == true) {
+            questionPlanets = parseInt(method4.value);
+        } else if (questionPlanets == undefined) {
+            questionPlanets = 0;
+        }
+    }
+    for (var a = 0; a < method5.length; a++) {
+        if (method5[a].checked == true) {
+            questionEarth = parseInt(method5.value);
+        } else if (questionEarth == undefined) {
+            questionEarth = 0;
+        }
+    }
+    for (var i = 0; i < method6.length; i++) {
+        if (method6[i].checked == true) {
+            questionMars = parseInt(method6.value);
+        } else if (questionMars == undefined) {
+            questionMars = 0;
+        }
+    }
+    for (var o = 0; o < method7.length; o++) {
+        if (method7[o].checked == true) {
+            questionPlanetEarth = parseInt(method7.value);
+        } else if (questionPlanetEarth == undefined) {
+            questionPlanetEarth = 0;
+        }
+    }
+    for (var t = 0; t < method8.length; t++) {
+        if (method8[t].checked == true) {
+            questionPopWorld = parseInt(method8.value);
+        } else if (questionPopWorld == undefined) {
+            questionPopWorld = 0;
+        }
+    }
+    for (var e = 0; e < method9.length; e++) {
+        if  (method9[e].checked == true) {
+            questionLcities = parseInt(method9.value);
+        } else if (questionLcities == undefined) {
+            questionLcities = 0;
+        }
+    }
+    for (var w = 0; w < method10.length; w++) {
+        if (method10[w].checked == true) {
+            questionOcity = parseInt(method10.value);
+        } else if (questionOcity == undefined) {
+            questionOcity = 0;
+        }
+    }
+    for (var q = 0; q < method11.length; q++) {
+        if (method11[q].checked == true) {
+            questionBalloun = parseInt(method11.value);
+        } else if (questionBalloun == undefined) {
+            questionBalloun = 0;
+        }
+    }
+    for (var u = 0; u < method12.length; u++) {
+        if (method12[u].checked == true) {
+            questionLang = parseInt(method12.value);
+        } else if (questionLang == undefined) {
+            questionLang = 0;
+        }
+    }
+    for (var m = 0; m < method13.length; m++) {
+        if (method13[m].checked == true) {
+            questionFootball1 = parseInt(method13.value);
+        } else if (questionFootball1 == undefined) {
+            questionFootball1 = 0;
+        }
+    }
+    for (var n = 0; n < method14.length; n++) {
+        if (method14[n].checked == true) {
+         questionFootball2 = parseInt(method14.value);   
+        } else if (questionFootball2 == undefined) {
+            questionFootball2 = 0;
+        }
+    }
+    if ( mat1 === 107) {
+        metho1 = 5;
+    } else {
+        metho1 = 0;
+    } 
+    if (mat2 === -12) {
+        metho2 = 5;
+    } else {
+        metho2 = 0;
+    }
+    
+   var estimate = parseInt(gala + tiToMa + massMarEar + metho1 + metho2 + facBoo + questionCountries + questionCities + questionPixels + questionPlanets + questionEarth + questionMars + questionPlanetEarth + questionPopWorld + questionLcities + questionOcity + questionBalloun + questionLang + questionFootball1 + questionFootball2); 
+    
+    document.getElementById("cong").innerHTML = "Your Score";
+    document.getElementById("degr").innerHTML = estimate + " %";
+    document.getElementById("name").style = "transform: translateX(0%);";
+    document.getElementById("age").style = "transform: translateX(0%); transition-delay: 0.2s";
+    document.getElementById("place").style = "transform: translateX(0%); transition-delay: 0.4s";
+    document.getElementById("cong").style = "transform: scale(1,1); transition-delay: 0.2s";
+    document.getElementById("degr").style = "transform: scale(1,1); transition-delay: 0.4s";
+    document.getElementById("lineone").style = "transform: translateX(0%); transition-delay: .1s;";
+    document.getElementById("linetwo").style = "transform: translateX(0%); transition-delay: .3s;";
+    document.getElementById("linethree").style = "transform: translateX(0%); transition-delay: .4s;";
+    document.getElementById("crid").style = "animation: aut 2s infinite alternate;";
+        
+}
+</script>
+</html>

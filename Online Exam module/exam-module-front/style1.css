@@ -1,0 +1,252 @@
+.content {
+    margin-top: 54px;
+    }
+    .header {
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    }
+    .left-title {
+    width: auto;
+    color: #fff;
+    font-size: 18px;
+    float: left;
+    }
+    .right-title {
+    width: 150px;
+    text-align: right;
+    float: right;
+    color: #fff;
+    }
+    .quiz-body {
+    margin-top: 15px;
+    padding-bottom: 1%;
+    }
+    .option-block-container {
+    margin-top: 20px;
+    max-width: 420px;
+    }
+    .option-block {
+    padding: 10px;
+    background: aliceblue;
+    border: 1px solid #84c5fe;
+    margin-bottom: 10px;
+    cursor: pointer;
+    }
+    .result-question {
+    font-weight: bold;
+    }
+    .c-wrong {
+    margin-left: 20px;
+    color: #ff0000;
+    }
+    .c-correct {
+    margin-left: 20px;
+    color: green;
+    }
+    .last-row {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    }
+    .res-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    }
+    
+    /* ---------- Custom style start----------*/
+    
+    .body-class{
+        background-color: #f8edff;
+    }
+    .content-center {
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 5% 10% 10% 10%;
+    }
+    
+    .myText-center{
+    text-align: center;
+    }
+    
+    .tdWidth{
+    width: 1%;
+    }
+    
+    .candidateInfo, .studentInfo{
+    background-color: darkblue !important;
+    color: white;
+    }
+    
+    .font-bold{
+        font-weight: bold;
+    }
+    
+    .content-center {
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 5% 10% 10% 10%;
+    }
+    
+    .myTd-style{
+    text-align: left;
+    width: 30%;
+    }
+    
+    .tdWidth{
+    width: 1%;
+    }
+    
+    .left-title{
+    width: auto;
+    }
+    
+    
+    
+    .tableStyle{
+    width: 60%;
+    margin: auto;
+    border-style: groove;
+    margin-top: 70px;
+    }
+    
+    
+    
+    .questions{
+    text-align: justify;
+      margin-bottom: 20px;
+    text-align: justify;
+    }
+    
+    /* video {
+        width: 500px;
+        height: 400px;
+        object-fit: cover;
+    } */
+    .language-timer{
+        background-color: darkblue;
+        color: white;
+    }
+    
+    
+    
+    .myrow{
+        border-style: groove;
+        margin: auto !important;
+        margin-top: 2% !important;
+        padding: 5px;
+        height: auto !important;
+        
+    }
+    
+    .td-style{
+        margin: auto;
+        width: auto !important;
+        border: 1px solid black;
+    }
+    
+    
+     #vid {
+        width: 100%;
+        padding: 5px;
+     }
+     .question-number{
+        padding: 5px;
+        background-color: white;
+        margin: 1px;
+        border: outset;
+        margin-top: 2px;
+    
+    } 
+    
+    .flex-container {
+        display: flex;
+        /* width: 80%; */
+        height: auto;
+        position: relative;
+        margin: auto;
+        flex-wrap: wrap;
+        padding: 10px !important;
+     }
+    
+     /* .flex-container > div {
+       padding: 5px;
+    } */
+     
+    .camera-timer-section{
+        height: auto;
+        background-color: #D0D3D4;
+        border: groove;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+        
+    .student-info-section{
+        height: auto;
+        margin-top: 10px !important;
+        background-color: #D0D3D4;
+        border: groove;
+    }
+    
+    .question-number-section{
+        height: auto;
+        margin-top: 10px !important;
+        background-color: #D0D3D4;
+        border: groove;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    /* .right-section{
+        display: none !important;
+    } */
+    
+    .button-container{
+        bottom: 0px;
+        display: flex;
+      
+        justify-content: center;
+        
+    }
+    .div-btn-style{
+        padding: 10px;
+    }
+    
+    .timer-section{
+        text-align: center;
+        margin: auto;
+        font-size: 20px;
+        font-weight: bold;
+        color: red;
+    }
+    
+    .question-numbers-buttons{
+        margin: 2%;
+    }
+
+    .option-image{
+        max-width: 20% !important;
+        max-height: 20%;
+        margin: 10px;
+    }
+    .btn-display-none-style{
+        display: none !important;
+    }
+    .btn-display-style{
+        display: block !important;
+    }
+    .my-spinner{
+   
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    
+     
+    }
+    /* ---------- Custom Style End -----------*/

@@ -1,0 +1,290 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Online Exam Module</title>
+	<link rel="stylesheet" href="style1.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+	<style>
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body onload=" startRecording()" class="body-class">
+
+	<header class="header bg-primary">
+		<div class="left-title">Online Exam Module</div>
+
+	</header>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row language-timer">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-3"></div>
+				<div class="col-sm-3"></div>
+				<div class="col-sm-3"> </div>
+			</div>
+			<img src="https://www.photoshopessentials.com/newsite/wp-content/uploads/2018/08/resize-images-print-photoshop-f.jpg"
+				style="height: 200px; width: 200px;" />
+			<div class="myrow row">
+
+				<div class="col-sm-9">
+
+					<div>
+						<div id="question-container">
+							<p id="questions"></p>
+						</div>
+						<div id="ImageNM">
+
+						</div>
+						<div id="desc-container">
+							<p id="description"></p>
+
+						</div>
+						<div id="load-question">
+
+						</div>
+					</div>
+
+
+					<div class=" button-container">
+						<div class="div-btn-style">
+							<button name="previous" id="prevBtn" class="btn btn-success ">Previous</button>
+						</div>
+						<div class="div-btn-style">
+							<button name="next" id="nextBtn" class="btn btn-success ">Next</button>
+						</div>
+						<div class="div-btn-style">
+							<button onclick="submitData()" id="submitBtn" class="btn btn-success ">Submit
+								Answer</button>
+						</div>
+
+						<!-- <div class="div-btn-style">
+							<button class="btn btn-primary" onclick="preview(data)">Review Later</button>
+						</div> -->
+						<div class="div-btn-style">
+							<button class="btn btn-warning" onclick="clearResponse(data)">Clear Response</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3 right-section">
+
+					<div class="row camera-timer-section">
+						<div class="col-sm-6 timer-section">
+							<p>Time Left</p>
+							<p>02:56:44</p>
+						</div>
+						<div class="col-sm-6">
+							<div>
+								<video width="150" height="150" autoplay id="vid"></video>
+								<p>Recorded File Size: <span id="fileSize">0 KB</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="row student-info-section">
+
+
+						<div class="table-responsive-sm ">
+							<table class="table ">
+
+								<tbody>
+									<tr class="">
+										<td>Student Name</td>
+										<!-- <td class="tdWidth"> : </td> -->
+										<td>Ram Shyam</td>
+									</tr>
+									<tr>
+										<td class="">Student Name</td>
+										<!-- <td class="tdWidth"> : </td> -->
+										<td>Ram Shyam</td>
+									</tr>
+									<tr>
+										<td class="">Student Name</td>
+
+										<td>Ram Shyam</td>
+									</tr>
+									<tr>
+										<td class="">Student Name</td>
+
+										<td>Ram Shyam</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+					<div class="row question-number-section">
+						<div class="col-sm-12">
+
+							<div class="flex-container">
+								<!-- <div class="question-number">1</div> -->
+								<div id="question-number-button"></div>
+								<br>
+								<div class="question-numbers-buttons ">
+									<button type="button" class="btn-xs">Not Visited</button>
+									<button type="button" class="btn-xs">Not Answered</button>
+									<button type="button" class="btn-xs">Answered</button>
+									<button type="button" class="btn-xs">Review</button>
+									<button type="button" class="btn-xs">Review Answered</button>
+
+								</div>
+
+							</div>
+							<div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="spinner-border text-primary my-spinner" style="width: 4rem; height: 4rem;" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+
+			<!-- End of row -->
+		</div> <!-- ENd of container fluid -->
+	</div> <!-- End of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+
+	<script src="script.js"></script>
+	<script>
+		var data = null;
+		$(document).ready(
+
+			fetch("http://localhost:3000/get-questions").then(response => response.json()).then(res => {
+				console.log(res.data.recordset);
+				data = res.data.recordset;
+				LoadQuize(data, 0)
+			})
+
+
+		);
+		//Next button................................................
+
+		$("#nextBtn").on("click", function () {
+			var val = $("input[type='radio']:checked").val();
+			$("#load-question").html(' ')
+
+			Next(data, val)
+
+		})
+		//Previous button............................................
+
+		$("#prevBtn").on("click", function () {
+			var val = $("input[type='radio']:checked").val();
+			$("#load-question").html(' ')
+			Previous(data, val)
+		})
+
+		const videoElement = document.getElementById("vid");
+		const fileSizeSpan = document.getElementById('fileSize');
+		let mediaRecorder;
+		let chunks = [];
+		let isRecording = false;
+
+		function startRecording() {
+			navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+				.then((stream) => {
+					videoElement.srcObject = stream;
+					mediaRecorder = new MediaRecorder(stream, { videoBitsPerSecond: 50000 });
+
+					mediaRecorder.ondataavailable = (event) => {
+						if (event.data.size > 0) {
+							chunks.push(event.data);
+							// Calculate file size in KB
+							// fileSizeSpan.innerText = (chunks.reduce((acc, cur) => acc + cur.size, 0) / 1024).toFixed(2) + ' KB';
+						}
+					};
+
+					mediaRecorder.onstop = () => {
+						const videoBlob = new Blob(chunks, { type: "video/webm" });
+						console.log("videoBlob-------", videoBlob);
+						chunks = [];
+
+						// Download the recorded video
+						const downloadLink = document.createElement("a");
+						downloadLink.href = URL.createObjectURL(videoBlob);
+						downloadLink.download = "recorded_video.webm";
+						downloadLink.click();
+					};
+
+					mediaRecorder.start();
+					isRecording = true;
+				})
+				.catch((error) => {
+					console.error("Error accessing the webcam:", error);
+				});
+		}
+		function start() {
+			mediaRecorder.start()
+		}
+		function stopRecording() {
+			if (mediaRecorder && isRecording) {
+				mediaRecorder.stop();
+				isRecording = false;
+			}
+		}
+
+		// Set the recording interval in milliseconds (e.g., 10000 for 10 seconds).
+		const recordingInterval = 10000;
+		setInterval(() => {
+			if (isRecording) {
+				stopRecording();
+				takeScreenshot();
+			} else {
+				startRecording()
+			}
+		}, recordingInterval);
+
+
+
+		//------------------SCREENSHOT CODE START ----------------------------
+
+		function takeScreenshot() {
+			const screenshotTarget = document.body;
+			html2canvas(screenshotTarget, { useCORS: true }).then(canvas => {
+				// dataURL = canvas.toDataURL();
+				// Canvas2Image.saveAsPNG(canvas);
+				// pushScreenshotToServer(dataURL);
+
+				const base64image = canvas.toDataURL("image/png");
+				Canvas2Image.saveAsPNG(canvas);
+			});
+		}
+
+		function pushScreenshotToServer(dataURL) {
+			$.ajax({
+				url: "push-screenshot.php",
+				type: "POST",
+				data: {
+					image: dataURL
+				},
+				dataType: "html",
+				success: function () {
+					console.log('Screenshot pushed to server.');
+				}
+			});
+		}
+
+
+
+//------------------SCREENSHOT CODE END ------------------------------
+
+	</script>
+
+</body>
+
+</html>

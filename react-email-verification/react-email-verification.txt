@@ -1,0 +1,162 @@
+FrontEnd
+-------------------------------------------------------------
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams, Link } from 'react-router-dom';
+import axios from "axios";
+import { toast } from "react-toastify";
+
+
+const SendEmail = () => {
+
+
+    // useEffect(() => {
+    //     axios.get(`http://localhost:4000/getPost/${id}`)
+    //     .then((res) => {
+    //         console.log('---res--->',res.data.data[0]);
+    //         setState({...res.data.data[0]});
+    //         console.log('---res--->',state.User_Name);
+    //     })
+    // });
+
+
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    const submitEmail = () => {
+        console.log('Email send');
+        console.log('Email Address::::', inputValue);
+
+        axios.post("http://localhost:4000/api/send-validation-email", {
+
+            email: inputValue,
+
+        }).then(() => {
+            toast.success("email send successfuly");
+        }).catch((err) => toast.error(err.response.data));
+        toast.success("email sended successfuly");
+    }
+
+
+    return (
+        <div>
+            <h4> Email Send Feature using node and reactjs</h4>
+
+            <input type="text" id="email" name="email" placeholder="Your email...." value={inputValue} onChange={handleInputChange} />
+
+            <input type="submit" onClick={submitEmail}></input>
+
+        </div>
+    )
+}
+
+export default SendEmail;
+
+
+
+-----------------------------------------------------
+
+Backend
+------------------------------------------------------
+
+
+//------------------------ Email Sender START --------------------------------------------------
+
+const nodemailer = require('nodemailer');
+var randomToken = require('random-token');
+
+
+
+//const validationToken = "iO3quoYg265hlzq30E8RelQc0LOKle4R0yk6CMbgeHgGNcm_mR";
+isEmailValidated: false;
+var reqEmail;
+app.post('/api/send-validation-email', async (req, res) => {
+    //const { email } = req.body;
+    reqEmail =req.body.email;
+    console.log("req.body::::"+reqEmail);
+
+   
+     // Generate a validation token
+    const validationToken = randomToken(35);
+    console.log('random validationToken::'+validationToken);
+   
+    console.log("##########Email does not exist --- Addng new Data!!!!!!!!");
+                dbConn.query("INSERT INTO usersdb.emailverification SET ? ", { Email: reqEmail, Token: validationToken }, function (error, results, fields) {
+                    if (error) throw error;
+                    console.log("#####EmailVerification Data added into table" + JSON.stringify(results));
+                    //return res.send({ error: false, data: results, message: 'AddPost successfully!!!' });
+                });
+      
+
+    
+
+    // Create a validation link
+   const validationLink = `http://localhost:3000/verifyEmail/${validationToken}`;
+  
+    // Save email and token to the database
+    //await User.create({ email, validationToken, isEmailValidated: false });
+  
+    // Configure and send email with Nodemailer
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // Use your email service
+      auth: {
+        user: 'visupater@gmail.com', // Your email
+        pass: 'gxuwysdssjnehmdw',  // Your email password
+      },
+    });
+  
+    const mailOptions = {
+      from: 'visupater@gmail.com',
+      to: 'vishwanath.20061993@gmail.com',
+      subject: 'Email Validation for testing',
+      text: `Click the following link to validate your email: ${validationLink}`,
+    };
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error(error);
+        res.status(500).send('Error sending email');
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.status(200).send('Email sent successfully');
+      }
+    });
+  });
+
+
+// Validate the Email Address
+  app.get('/api/validate-email/:token',  (req, res) => {
+    const reqtoken  = req.params.token;
+    console.log('##### Backend req Token is::'+reqtoken);
+    console.log("##### Backend req Email is::"+reqEmail);
+    // Find user by validation token
+    var dbToken;
+
+    dbConn.query(`SELECT Token FROM usersdb.emailverification WHERE Token = "${reqtoken}"`, function (error, results, fields) {
+        if (error) throw error;
+       // return res.send({ error: false, data: results, message: 'Post List.' });
+       console.log("#####Get Token::: "+results[0].Token);
+        this.dbToken = JSON.stringify(results[0].Token);
+        if (reqtoken == results[0].Token) {
+            console.log("####### Inside If Condition");
+            // Mark the email as validated
+            isEmailValidated = true;
+           // await user.save();
+            res.send('Email validated successfully');
+          } else {
+            console.log("####### Inside Else Condition");
+            res.status(400).send('Invalid validation token');
+          }
+
+    });
+  
+
+  
+    
+  });
+
+
+//------------------------ Email Sender END -------------------------------------------------------
