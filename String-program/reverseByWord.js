@@ -1,4 +1,5 @@
 const str = 'this is a sample string';
+console.log('------------1st Method-----------');
 const reverseWords = str => {
     let reversed = '';
     reversed = str.split(" ").map(word => {
@@ -6,7 +7,7 @@ const reverseWords = str => {
     }).join(" ");
     return reversed;
 };
-console.log(reverseWords('2222'+str));
+console.log(reverseWords(str));
 
 //----------------- 2nd Method ---------------------
 console.log('------------2d Method-----------');

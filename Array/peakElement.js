@@ -18,7 +18,7 @@ let numArr = [20, 30, 40, 50];
 console.log(numArr);
 numArr.splice(1, 0, 3, 4, 5); 
   
-console.log(numArr); 
+console.log('numArr.splice()',numArr); 
 
 // Declare and initialize array 
 let strArr = ["amit", "sumit", "anil"]; 
