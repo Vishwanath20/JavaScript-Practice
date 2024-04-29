@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      height: 200px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .example {
+      width: 50px;
+      height: 50px;
+      background-color: #3498db;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* Different position values */
+    .relative {
+      position: relative;
+      top: 20px;
+      left: 20px;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="example relative">Relative</div>
+    <div class="example absolute">Absolute</div>
+    <div class="example fixed">Fixed</div>
+    <div class="example sticky">Sticky</div>
+  </div>
+</body>
+</html>

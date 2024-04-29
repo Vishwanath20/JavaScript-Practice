@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<center>
+<img id="pic" src="animal.jpg" alt="" style="width: 50%; height: 50%;"/>
+<button onclick="zoomIn()">Zoom-In</button>
+<button onclick="zoomOut()">Zoom-Out</button>
+</center>
+</body>
+<script type="text/javascript">
+	function zoomIn() {
+var pic = document.getElementById("pic");
+var width = pic.clientWidth;
+pic.style.width = width + 100 + "px";
+}
+
+function zoomOut() {
+var pic = document.getElementById("pic");
+var width = pic.clientWidth;
+pic.style.width = width - 100 + "px";
+}
+
+</script>
+</html>

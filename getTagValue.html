@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Object in HTML</title>
+</head>
+<body>
+    <div id="employeeList"></div>
+    <input type="text" id="selectedEmployeeTextBox">
+    
+    <script>
+        const data = {
+            employees: [
+                { "0": "John" },
+                { "1": "Anna" },
+                { "2": "Peter" }
+            ]
+        };
+
+        const employeeListContainer = document.getElementById('employeeList');
+        const textBox = document.getElementById('selectedEmployeeTextBox');
+
+        // Iterate through the employees array
+        data.employees.forEach((employeeObject, index) => {
+            // Get the employee's name (assuming there's only one key)
+            const employeeName = employeeObject[index.toString()];
+
+            // Create a <p> element for each employee's name
+            const employeeElement = document.createElement('p');
+            employeeElement.textContent = `Employee ${index + 1}: ${employeeName}`;
+
+            // Create a button for each employee
+            const button = document.createElement('button');
+            button.textContent = 'Select';
+            button.addEventListener('click', () => {
+                // When the button is clicked, set the text box value to the selected employee
+                textBox.value = employeeName;
+            });
+
+            // Append the <p> element and button to the container
+            employeeListContainer.appendChild(employeeElement);
+            employeeListContainer.appendChild(button);
+        });
+    </script>
+</body>
+</html>
