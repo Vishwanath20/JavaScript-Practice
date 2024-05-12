@@ -1,0 +1,325 @@
+console.log(x); 
+
+var x = 5; 
+
+console.log(x); 
+
+console.log(y); 
+
+let y = 10; 
+
+console.log(y); 
+
+------------------
+var value = 1; 
+
+function hello() { 
+
+  console.log('value is ' + value);  
+
+  var value = 3; 
+
+  return value + 1; 
+
+}  
+
+console.log('hello is ' + hello()); 
+------------------------
+for (var i = 0; i < 10; i++) {  
+
+  console.log('var ' + i); 
+
+}
+------------------------
+for (var i = 0; i < 10; i++) {  
+
+  setTimeout(function() {  
+
+    console.log('var ' + i); 
+
+  } , 1000); 
+
+} 
+----------------------------
+for (const i = 0; i < 10; i++) {  
+
+  console.log('const ' + i); 
+
+} 
+----------------------
+ https://stackblitz.com/edit/angular-ivy-akyyqx
+-----------------------
+console.log(x); // undefined
+var x = 5;
+console.log(x); // 5
+console.log(y); // reference error
+let y = 10;
+console.log(y); // 10
+-----------------
+var value = 1;
+function hello() {
+  console.log('value is ' + value);  
+  var value = 3;
+  return value + 1;
+} 
+console.log('hello is ' + hello());
+---------------
+for (var i = 0; i < 10; i++) {​​​​​                     
+  setTimeout(function() {​​​​​
+    console.log(i);
+  }​​​​​, 1000);
+}
+-------------------
+for (let i = 0; i < 10; i++) {​​​​​                     
+  setTimeout(function() {​​​​​
+    console.log(i);
+  }​​​​​, 1000);
+}
+
+-----------------------
+const arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+
+const duplicateMap ={};
+
+arr.forEach((element)=> {
+    duplicateMap[element] = duplicateMap.hasOwnProperty(element) ? duplicateMap[element]++ : 1;
+});
+
+for(key in duplicateMap){
+    if(duplicateMap[key] === 1){
+        delete duplicateMap[key];
+    }
+};
+
+console.log(duplicateMap);
+--------------------------------
+https://stackblitz.com/edit/angular-ivy-akyyqx 
+------------------------
+---------------------
+var value = 1;
+function hello() {
+  console.log('value is ' + value);  //1
+  var value = 3; 
+  return value + 1;
+} 
+
+var b =  hello();
+console.log('hello is ' + b);
+
+----------------------
+
+var arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+let count = 0;
+var emp = {};
+for(let i=0;i<arr.length){
+    if(emp[arr[i]]){
+        count++;
+    }
+    else{
+        count = 1;
+    }
+}
+
+for(let item in emp){
+concole.log(item);
+}
+-------------------------------------
+
+var arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+let count = 0;
+var emp = {};
+for(let i=0;i<arr.length; i++){
+    if(emp[arr[i]]){
+        count++;
+    }
+    else{
+        emp[arr[i]];
+        count = 1;
+    }
+}
+
+var c = 0;
+var a = []
+for(let i=0;i<arr.length; i++){
+   for(let j=i;j<arr.length;j++){
+       if(arr[i] == arr[j]){
+           c++
+       }
+       console.log(arr[])
+   }
+}
+
+
+----------------------
+console.log(x); 
+
+var x = 5; 
+
+console.log(x); 
+
+console.log(y); 
+
+let y = 10; 
+
+console.log(y); 
+
+------------------
+var value = 1; 
+
+function hello() { 
+
+  console.log('value is ' + value);  
+
+  var value = 3; 
+
+  return value + 1; 
+
+}  
+
+console.log('hello is ' + hello()); 
+------------------------
+for (var i = 0; i < 10; i++) {  
+
+  console.log('var ' + i); 
+
+}
+------------------------
+for (var i = 0; i < 10; i++) {  
+
+  setTimeout(function() {  
+
+    console.log('var ' + i); 
+
+  } , 1000); 
+
+} 
+----------------------------
+for (const i = 0; i < 10; i++) {  
+
+  console.log('const ' + i); 
+
+} 
+----------------------
+ https://stackblitz.com/edit/angular-ivy-akyyqx
+-----------------------
+console.log(x); // undefined
+var x = 5;
+console.log(x); // 5
+console.log(y); // reference error
+let y = 10;
+console.log(y); // 10
+-----------------
+var value = 1;
+function hello() {
+  console.log('value is ' + value);  
+  var value = 3;
+  return value + 1;
+} 
+console.log('hello is ' + hello());
+---------------
+for (var i = 0; i < 10; i++) {​​​​​                     
+  setTimeout(function() {​​​​​
+    console.log(i);
+  }​​​​​, 1000);
+}
+-------------------
+for (let i = 0; i < 10; i++) {​​​​​                     
+  setTimeout(function() {​​​​​
+    console.log(i);
+  }​​​​​, 1000);
+}
+
+-----------------------
+const arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+
+const duplicateMap ={};
+
+arr.forEach((element)=> {
+    duplicateMap[element] = duplicateMap.hasOwnProperty(element) ? duplicateMap[element]++ : 1;
+});
+
+for(key in duplicateMap){
+    if(duplicateMap[key] === 1){
+        delete duplicateMap[key];
+    }
+};
+
+console.log(duplicateMap);
+--------------------------------
+https://stackblitz.com/edit/angular-ivy-akyyqx 
+------------------------
+---------------------
+var value = 1;
+function hello() {
+  console.log('value is ' + value);  //1
+  var value = 3; 
+  return value + 1;
+} 
+
+var b =  hello();
+console.log('hello is ' + b);
+
+----------------------
+
+var arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+let count = 0;
+var emp = {};
+for(let i=0;i<arr.length){
+    if(emp[arr[i]]){
+        count++;
+    }
+    else{
+        count = 1;
+    }
+}
+
+for(let item in emp){
+concole.log(item);
+}
+-------------------------------------
+
+var arr = [3,9,5,0,3,1,3,5,4,6,1,3];
+let count = 0;
+var emp = {};
+for(let i=0;i<arr.length; i++){
+    if(emp[arr[i]]){
+        count++;
+    }
+    else{
+        emp[arr[i]];
+        count = 1;
+    }
+}
+
+var c = 0;
+var a = []
+for(let i=0;i<arr.length; i++){
+   for(let j=i;j<arr.length;j++){
+       if(arr[i] == arr[j]){
+           c++
+       }
+       console.log(arr[])
+   }
+}
+
+
+----------------------
+function Person(){}
+var person = =function(){}
+
+-------------------------------------
+const arr = [2,4,6];
+arr.push(7);
+----------------------------------
+var arr = [10,20,30];
+arr[5] = 50;
+console.log(arr[3])
+------------------------------------
+const arr = [10,20,30,40];
+for(var i=0;arr.length;i++){
+	setTimeout(function(){
+		console.log(arr[i])
+	}, 0);
+}
+-------------------------------------------
+
