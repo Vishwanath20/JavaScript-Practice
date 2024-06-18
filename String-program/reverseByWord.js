@@ -9,16 +9,4 @@ const reverseWords = str => {
 };
 console.log(reverseWords(str));
 
-//----------------- 2nd Method ---------------------
-console.log('------------2d Method-----------');
-
-function revWord() {
-    let sent = "This is Vishwanath";
-    //  let sentense = sent.split("");
-
-    reversed = sent.split(" ").map(word => {
-        return word.split("").reverse().join("");
-    }).join(" ");
-    return reversed;
-}
-console.log(revWord());
+//siht si a elpmas gnirts

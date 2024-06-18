@@ -323,3 +323,247 @@ for(var i=0;arr.length;i++){
 }
 -------------------------------------------
 
+Meghana Reddy M S
+12:02 PM
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+sayHi();
+
+
+output: 
+undefined
+ERROR!
+/tmp/BpnUfQL7xw.js:3
+  console.log(age);
+              ^
+
+ReferenceError: Cannot access 'age' before initialization
+-------------------------------------------------------------------
+
+Meghana Reddy M S
+12:04 PM
+greetArrow(); 
+const greetArrow = () => {
+  console.log('Hello!');
+};
+
+// ERROR!
+/tmp/L3ebtn36b9.js:1
+greetArrow(); 
+^
+---------------------------------
+sayHi(); 
+var sayHi = function() {
+  console.log('Hi!');
+};
+
+//ERROR!
+/tmp/10aJ6S03o6.js:7
+sayHi(); 
+^
+
+TypeError: sayHi is not a function
+
+----------------------------------------------
+Meghana Reddy M S
+12:05 PM
+greet(); 
+function greet() {
+  console.log('Hello, World!');
+}
+
+// Hello, World!
+-----------------------
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+3
+3
+3
+
+
+--------------------------------------------
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+0
+1
+2
+
+----------------
+Meghana Reddy M S
+12:09 PM
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+console.log(shape.diameter());
+console.log(shape.perimeter());
+
+
+//20
+//NaN
+
+------------------------------------------------
+Meghana Reddy M S
+12:11 PM
+let a = 3;
+let b = new Number(3);
+let c = 3;
+
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
+
+// true
+false
+false
+---------------------------------
+Meghana Reddy M S
+12:13 PM
+class Goat {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = 'green' } = {}) {
+    this.newColor = newColor;
+  }
+}
+const abcd = new Goat({ newColor: 'purple' });
+console.log(abcd.colorChange('orange'));
+
+// ERROR!
+
+static method can't accessible with class instance it will accessed by class name itself
+
+--> console.log(Goat.colorChange('orange'));
+// orange
+
+------------------------------------------------------------
+Meghana Reddy M S
+12:16 PM
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person('Lydia', 'Hallie');
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(member.getFullName());
+
+// ERROR
+// getFullName becomes static member of class so can't access by class instance
+
+----------------------------------------------------------
+You
+12:19 PM
+console.log("5"-3) // 2
+-------------------------------------------------------------
+Hover over a message to pin it
+keep
+Meghana Reddy M S
+12:20 PM
+if ([] && {}) {
+  console.log('This will be logged'); 
+}
+
+// true
+----------------------------------------------------------------
+Meghana Reddy M S
+12:21 PM
+if (0) {
+  console.log('This will not be logged');
+}
+
+----------------------------------------------------------
+
+console.log(null === undefined);
+false
+------------------------------------------------------------
+console.log([1, 2, 3] + '');
+
+console.log([1, 2, 3] + 56);
+
+//1,2,3
+1,2,356
+----------------------------
+Meghana Reddy M S
+12:23 PM
+console.log([1,2]==“1,2”)
+
+//true
+------------------------------------------------------------
+Meghana Reddy M S
+12:26 PM
+let addSix = new createBase(6)
+addSix(10) // 16
+addSix(15) // 21
+let addSix =  createBase(6)
+addSix(10) // 16
+addSix(15) // 21
+
+
+program::
+function createBase(a){
+return function inner(b){
+return a+b;
+}
+inner();
+}
+let addSix =  createBase(6);
+console.log(addSix(10)) // 16
+
+-------------------------------------------------
+
+
+var person ={
+name: "John",
+age: "30"
+}
+
+function greet(h){
+return  h+this.name+this.age+
+}
+greet.call(person, "Hi")
+You
+12:33 PM
+greet.apply(person, ["Hi"])
+Meghana Reddy M S
+12:46 PM
+
+
+--> write polyfills for call()
+
+-------------------------------------------------------------
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'one');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'two');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+
+-->Output::: two
+-------------------------------------
+Write a program that reverses all the words in a sentence without changing the order of words, without using existing functions like split, reverse, or join
+
+input: "hello world this is a test";
+
+output: "olleh dlrow siht si a tset"

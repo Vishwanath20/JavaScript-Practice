@@ -1,7 +1,7 @@
 
 function cntElements(arr, n) {
 	let copy_arr = new Array(n);
-	for (let i = 0; i < n; i++)
+	for (let i = 0; i < arr.length; i++)
 		copy_arr[i] = arr[i];
 	let count = 0;
 	arr.sort((a, b) => a - b);
@@ -12,7 +12,7 @@ function cntElements(arr, n) {
 	}
 	return count;
 }
-let arr = [4,2,5,6];
+let arr = [4, 2, 5, 6];
 let n = arr.length;
 
 console.log(cntElements(arr, n));

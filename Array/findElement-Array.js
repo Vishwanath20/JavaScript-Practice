@@ -12,6 +12,7 @@ function checkEle(element){
      return element +" is not present in array.";
 }
 console.log(checkEle(9));
+//-----------------------------------------------------
 
 // 2.  Using indexOf() function:
 console.log('------- Using indexOf() function:--------');

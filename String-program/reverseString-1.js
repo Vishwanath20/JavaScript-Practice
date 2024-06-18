@@ -15,3 +15,5 @@ function revString(str) {
 }
 
 console.log(revString("My Name is Vishwanath"));
+
+//htanawhsiV si emaN yM

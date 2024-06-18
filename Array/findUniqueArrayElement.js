@@ -1,9 +1,6 @@
 // let arr = [1, 2, 3, 1, 2, 3, 5, 4, 6, 2]
-
 // let len = arr.length;
-
 // let empArr = [];
-
 // for (let i = 0; i < len; i++) {
 //     if (empArr.indexOf(arr[i]) === -1) {
 //         empArr.push(arr[i])
