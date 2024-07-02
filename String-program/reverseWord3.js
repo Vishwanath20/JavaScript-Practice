@@ -10,3 +10,5 @@ function reverseInPlace(str) {
 }
 
 console.log(reverseInPlace("Vishwanath Kumar Pater"))
+
+//Output: htanawhsiV ramuK retaP 
