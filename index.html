@@ -1,11 +1,20 @@
 <div id="app"></div>
+<ul>
+    <li>
+        <a href="./OOPS-JS/prototypal-Inheritance-with-Constructor-Functions.html">
+            prototypal-Inheritance-with-Constructor-Functions
+        </a>
+    </li>
+</ul>
 <script>
-
-    for (let i = 0; i < 10; i++) {
-        setTimeout(function () {
-            console.log(i);
-        }, 1000);
+    function test(){
+        console.log(x);  // undefined
+var x = 5; 
+console.log(x); // 5
+console.log(y); //ReferenceError: Cannot access 'y' before initialization
+let y = 10; 
+console.log(y); 
     }
 
-
+    test();
 </script>

@@ -18,18 +18,44 @@ console.log(getCount("Vishwanath"));
 
 /* 2nd method */
 
-// var str = "My name is John Smith";
-// var str = [1, 2, 5, 4, 1, 2, 3, 5, 6];
-// //str=str.toLowerCase();
-// var empObj = {};
-// var ch, counter, actualLength, count;
-// for (counter = 0, actualLength = str.length; counter < actualLength; ++counter) {
-//     // ch = str.charAt(counter);
-//     ch = str[counter];
-//     count = empObj[ch];
-//     empObj[ch] = count ? count + 1 : 1;
-// }
-// for (ch in empObj) {
-//     if (ch != ' ')
-//         console.log(ch + " : " + empObj[ch]);
-// }
+function countDuplicates(str) {
+    // Convert the string to lowercase
+    str = str.toLowerCase();
+
+    // Create an object to keep track of character counts
+    const charCount = {};
+
+    // Iterate over the string and update the counts in the object
+    for (const char of str) {
+        if (charCount[char]) {
+            charCount[char] += 1;
+        } else {
+            charCount[char] = 1;
+        }
+    }
+
+    // Count the number of characters that appear more than once
+    let duplicateCount = 0;
+    for (const count of Object.values(charCount)) {
+        if (count > 1) {
+            duplicateCount++;
+        }
+    }
+
+    return duplicateCount;
+}
+
+const inputString = "Indivisibility";
+const result = countDuplicates(inputString);
+console.log(result); // Output: 1
+
+//---------------------------------------------
+
+let a = {};
+let b = { key: "b" };
+let c = { key: "c" };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);

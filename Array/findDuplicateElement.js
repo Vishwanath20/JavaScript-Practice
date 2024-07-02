@@ -15,7 +15,6 @@ function findDuplicate(arr) {
 let arr = [1, 2, 3, 2, 5, 6, 3];
 let duplicate = findDuplicate(arr);
 console.log(duplicate);
-
 /* --------------------------------------------------------------- */
 function getDuplicateArrayElements(arr) {
     var sorted_arr = arr.slice().sort();
@@ -32,10 +31,11 @@ var colors = ["red", "orange", "blue", "green", "red", "blue"];
 var duplicateColors = getDuplicateArrayElements(colors); //["blue", "red"]
 console.log(duplicateColors);
 
-
+//--------------------------------------------------------------
 /* fiind the duplicate element using empty object */
 var colors = ["red", "orange", "blue", "green", "red", "blue"];
 const isThereADuplicate = findDup(colors);
+
 
 function findDup(colors) {
     var empObj = {};
@@ -51,14 +51,9 @@ function findDup(colors) {
 
 console.log(isThereADuplicate);
 
-//Approch3: find duplicates using filter()
-console.log("----//Approch3: find duplicates using filter()---");
-function findDuplicate(arr1){
-    let dup =arr1.filter((ele,index,arr)=>{
-        return (arr.indexOf(ele) !== index)
-    });
-    return dup;
-}
-let arr1 = [1,2,,2,1,3,5,4,3,4,6,7]
-let duplicate1 = findDuplicate(arr1);
-console.log("duplicate1::",duplicate1);
+//-----------------------------------------
+const arrNum = [1,2,3,1,2,3,4,6,5,4,5];
+const dup = arrNum.filter((ele,index,arr)=>{
+   return arr.indexOf(ele)!== index
+});
+console.log(dup);
