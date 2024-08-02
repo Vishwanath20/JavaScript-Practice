@@ -19,7 +19,6 @@ console.log(getCount("Vishwanath"));
 /* 2nd method */
 
 function countDuplicates(str) {
-    // Convert the string to lowercase
     str = str.toLowerCase();
 
     // Create an object to keep track of character counts
@@ -45,7 +44,7 @@ function countDuplicates(str) {
     return duplicateCount;
 }
 
-const inputString = "Indivisibility";
+const inputString = "Indbivisibility";
 const result = countDuplicates(inputString);
 console.log(result); // Output: 1
 

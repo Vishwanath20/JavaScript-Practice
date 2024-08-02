@@ -15,11 +15,9 @@ let findLongestConseqSubseq =(arr,n) => {
     for(let i=0;i<n;i++){
         if(i>0 && arr[i] == arr[i-1]+1){
             count++;
-            console.log('insde if - startindex::',i-1);
+            //console.log('insde if - startindex::',i-1);
             if(count == 1){
-                
                 startindex = i-1;
-                
             }
             endindex = i;
         }

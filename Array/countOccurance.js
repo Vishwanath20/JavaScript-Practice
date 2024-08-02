@@ -7,9 +7,9 @@ let count={};
 
 // console.log(count);
 for(let j=0; j<arr.length; j++){
-    count[arr[j]] = count[arr[j]] ? count[arr[j]] + 1: 1;
+   // count[arr[j]] = count[arr[j]] ? count[arr[j]] + 1: 1;
     if( count[arr[j]]){
-        count[arr[j]] + 1
+        count[arr[j]]=count[arr[j]] + 1
     }
     else{
         count[arr[j]] = 1;

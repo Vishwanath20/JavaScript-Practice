@@ -4,7 +4,7 @@ let str = "This is Book";
 function revStr(str){
     let s = str.split(" ");
     let rev = "";
-    //console.log(s);
+    console.log(s);
     let r = s.map((word)=>{
         //console.log(word.length);
         for(let i=word.length-1;i>=0;i--){

@@ -1,7 +1,5 @@
 // Task:
-
 // Given an array, the task is to cyclically rotate the array clockwise by one time. 
-
 // Input: arr[] = {1, 2, 3, 4, 5}
 // Output: arr[] = {5, 1, 2, 3, 4}
 
