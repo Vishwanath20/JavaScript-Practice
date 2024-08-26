@@ -561,3 +561,142 @@ Write a program that reverses all the words in a sentence without changing the o
 input: "hello world this is a test";
 
 output: "olleh dlrow siht si a tset"
+-----------------------------------------
+//Input:
+
+//var nums1 = [1, 2, 3, 7, 11];
+//var nums2 = [2, 3, 5, 6, 12, 17, 20];
+//Output: [1, 2, 2, 3, 3, 5, 6, 7, 11, 12, 17, 20]
+
+function joinArr(a1, a2){  
+  let res = a1.concat(a2);
+//   let temp=[];
+//   for(let i=0; i<res.length-1; i++){
+//     for(let j=1; j<res.length; j++){
+//       if(res[i]>res[j]){
+//         temp = res[i];
+//         res[i]=res[j];
+//         res[j] = temp;
+//       }
+//     }
+//   }
+//   console.log(temp)
+}
+
+var nums1 = [1, 2, 3, 7, 11];
+var nums2 = [2, 3, 5, 6, 12, 17, 20];
+//console.log(joinArr(nums1, nums2))
+joinArr(nums1, nums2);
+
+---------------------------------------------------------
+how to pass the data b/w two sibling
+
+servie file
+
+
+getMessage()<Observable>{
+ let sub = new Subject();
+  data="msg";
+  next(){
+  
+  }
+  return data
+}
+
+
+//ts
+
+
+
+-------------------------------------------
+
+var x; 
+console.log(x);
+setTimeout(() => {
+    console.log(77);
+}, 10);
+
+x = 100;
+console.log(x); 
+setTimeout(() => {
+    console.log(-999);
+}, 0);
+ 
+const p = new Promise((resolve, reject) => {
+    resolve(90);
+}); 
+p.then((val) => {
+    console.log(val);
+});
+ 
+x = 1000;
+console.log(x);
+
+----------------------------------------------------------------------------------------------------------
+function myFunc() {
+    for (var i = 0; i < 5; i++) {
+        setTimeout(() => {
+            console.log(`Counter: ${i}`);
+        }, i * 1000);
+    }
+}
+-------------------------------
+const promise = new Promise((resolve, reject) => {
+    const response = 10;
+    console.log(`Step 0. Resolved value ${response}`);
+    resolve(response);
+});
+ 
+promise
+    .then((val) => {
+        console.log(`Step 1. Resolved value ${val}`);
+        return val * 2;
+    })
+    .then((val) => {
+        console.log(`Step 3. Resolved value ${val}`);
+        return val * 4;
+    })
+    .catch((err) => {
+        console.log(`Step 4. Resolved value ${err}`);
+        return val * 5;
+    })
+    .then((val) => {
+        console.log(`Step 5. Resolved value ${val}`);
+        return val * 6;
+    })
+    .finally((val) => {
+        console.log(`Step 6. Finally value ${val}`);
+        return val * 7;
+    })
+-------------------------------
+center the div inside oanother div
+-----------------------------------
+javascript program
+1. task schecular
+input : two parameter
+      1. Duration
+      2. task array
+
+      var task = [
+        {
+          taskName:"task1",
+          duration: "10"
+        },
+        {
+          taskName:"task2",
+          duration: "20"
+        },
+        {
+          taskName:"task3",
+          duration: "30"
+        }
+      ] 
+      
+      function(tasks, duration);
+  --> return how many task can be complated within given duration.
+
+  2. js program return maximum prefix
+  i/p - [apple, app, apicor]
+  o/p - ap
+
+  3.

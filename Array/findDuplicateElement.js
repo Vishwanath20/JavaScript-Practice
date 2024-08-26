@@ -57,3 +57,15 @@ const dup = arrNum.filter((ele,index,arr)=>{
    return arr.indexOf(ele)!== index
 });
 console.log(dup);
+
+//------------remove deuplicate from string---------
+
+let s = "Vishwanath";
+s = s.split('');
+let te = [];
+for(let i=0; i<s.length;i++){
+    if(!te.includes(s[i])){
+        te.push(s[i])
+    }
+}
+console.log(te.join(''));

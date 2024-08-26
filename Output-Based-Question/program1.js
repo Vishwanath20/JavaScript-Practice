@@ -29,33 +29,52 @@ var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
 delete trees[3];
 console.log(trees);
 
-//----------------
+//-----------------------------
 
-class Goat {
-    static colorChange(newColor) {
-      this.newColor = newColor;
-      return this.newColor;
+//Revese Sentense
+
+let str = "My name is Rani";
+console.log(revStr1(str));
+
+
+function revStr1(str){
+  //  str = str.split(' ');
+    console.log(str);
+     res = [];
+    for(let i=str.length-1;i>=0;i--){
+      //  console.log(str[i]);
+       //res.push(str[i])
+       res += str[i]
     }
-  
-    constructor({ newColor = 'green' } = {}) {
-      this.newColor = newColor;
+   return res;
+}
+
+//---------------REV BY WORD -------------------
+let str1 = "My name is Rani";
+console.log(revByWord(str1));
+function revByWord(str){
+    str = str.split(' ');
+    console.log(str);
+    res = [];
+    let rev = str.map((word)=>{
+       // console.log(word);
+        for(let i=word.length-1;i>=0;i--){
+           
+             res.push(word[i]);
+          }
+          res.push(' ');
+    });
+   return res.join('');
+}
+
+//-------------REMOVE DUPLICATE--------------
+let a = [1,2,1,2,1,45,68,68,56,2];
+let t = [];
+for(let i=0; i<a.length; i++){
+ for(let j=i; j<=a.length;j++){
+    if(a[i] != a[j]){
+        t.push(a[j])
     }
-  }
-  const abcd = new Goat({ newColor: 'purple' });
-  console.log(Goat.colorChange('orange'));
-  console.log(abcd.colorChange('orange'));
-
-  //------------
-  if (0) {
-    console.log('This will not be logged');
-  }
-  else{
-    console.log("0 is falsy value so can't go inside if()");
-  }
-
-  //-------------
-
-  var obj = "ABC";
-  var objNew = obj;
-  obj = "xyz";
-  console.log(objNew);
+ }   
+}
+console.log(t);
