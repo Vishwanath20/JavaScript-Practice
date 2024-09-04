@@ -1,0 +1,58 @@
+--> Vanilla js
+------------------------------
+1. what is js
+2. is js is single or multithreaded?
+3. hoisting in js
+4. clouser in js with example and uses cases
+5. callBack/callback hell with example and uses cases of callback function
+6. DataType in js 
+7. primitive and non-primitive datatype (call by value and call by reference) and its behaviour with function
+8. call, apply, bind method with example and use cases.
+9. why script tag has been used apart from embedded.
+10. why script tage should write at the end of body tag.
+11. differ vs preload technique in js
+12. prototype with example and use cases
+13. prototypical object and _proto_ 
+14. prototype inheritence
+15. IIFE function
+16. Ployfills in js with some code example
+17. event deligation (event bubbling and event capturing, stop propagation, preventdefault) with example and use cases.
+18. debouncing and throatling in js with example and use cases
+19. setTimeout and setInterval 
+20. Event Loop concept with example
+21. Design pattern
+22. generator function
+23. object copy (deep and shallow copy)  with example and use cases.
+24. fucntion expresion and function declaration
+25. fucntion currying with example and use cases.
+26. how to handle infinite fucntion curryinh with example and use cases.
+27. null vs undefined and typeof 
+28. how to freez/seal object
+//---------------------------------------------------------------------
+--> Modern js
+1. let vs var vs const with example and use cases.
+2. ES6 basic feature
+3. normal function and arrow function difference
+4. Temporal dead zone with let 
+5. Rest and Spread operator
+6. object destructring
+7. Array methods  with example and use cases.
+8. String methods with example and use cases.
+9. higher order function logic  with example and use cases.
+10. first class function in js
+12. promise in js with example and use cases.
+13. promises methods (promise.all, promise.race etc) with example and use cases.
+12. why promise over callback (callback hell)
+13. what is promise chaning
+13. how many function returned by function(resolve and reject)
+14. error handing using promise
+15. asyn await with example and use cases.
+15. promise vs async await
+16. async await with setTimeout behaviour with example.
+17. map vs filter vs forEach vs reduce
+18. for in and for of Loop
+19. ES6 map and set in js
+20. ES6 class and object and inheritence
+21. Session/cookie/ local storage
+22. web workers with example and use cases
+
