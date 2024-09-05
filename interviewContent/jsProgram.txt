@@ -723,3 +723,24 @@ var newObj=[
    { name:[Ram, mohan],type:'testeer'},
 ]
 --------------------------------------------------------------------
+// input [1,2,3,4]
+//output [24,12,8,6]
+
+let arr = [1,2,3,4]
+console.log(modifyArr(arr));
+function modifyArr(arr){
+    let empArr=[];
+    let n = arr.length;
+    for(let i=0; i<n; i++){
+          let sum = 1;
+        for(let j=0; j<n; j++){
+            if(i != j){
+                sum = sum * arr[j]
+            }
+        }
+        empArr.push(sum);
+    }
+    return empArr;
+}
+
+-----------------------------------

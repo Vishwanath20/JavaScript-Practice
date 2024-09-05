@@ -56,3 +56,11 @@
 21. Session/cookie/ local storage
 22. web workers with example and use cases
 
+---------------------TYPESCRIPT---------------------
+1. why typescript is better then javascript.
+2. how to make optional property in typescrript.
+3. class interface and "type" in typescript
+4. what is touple
+5. narrowing
+
+
