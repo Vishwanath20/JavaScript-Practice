@@ -1,5 +1,497 @@
+1. Venilla js 
+2. Design pattern
+3. create multiple projects inside one single angular project
+4. editable table: so how you will edit one row data and save it.
+5. create one common componenet and used that inside another components
+----------------------------------------------------------------------------------
+
+1. Angular unit test cases
+2. what is mono/micro repo application
+3. how project migration and scenario that need to be consider (dependency, project structure, angular lifecycle, subscription/unsubscription, syntax)
+4. angular lifecycle
+5. typescript
+6. angular feature
+7. state management
+8. subjects
+
+----------------------------------------------------------------------------------
+1. how to execute api beofore loding component(Router: Resolve)
+2. javascript: object coping and different/advantage/disadvantage/additional way (Object.assign(), Spread Operator (...), )
+3. Angular: different b/w router.snapshot and router.subscribe
+4. custom validator
+5. custom pipe
+6. code optimization and incress performance
+7. Router - forRoot and forChild
+8. in constructor what is the different b/w private and publich instance 
+-----------------------------------------------------------------------------------
+
+
+> Third party libraries
+> call base url on different server .
+> ngrx related questions . why we use ngrx ?
+> state management releated questions.
+> javascript is single threaded or multithreaded and  how javascript handles asynchronous call
+> Any challenges face in project 
+> design architecture layout.
+> Difrrent storage - local, session, cookies related question.
+> Last project Citi design structure and standards.
+-----------------------------------------------------------
+Js – single thread/multi thread, why
+Session/cookie/ local storage
+How to secure data in local storage
+Css-grid-flex box
+What is Web-API, available web-API
+Semantic elements
+How to create dynamic component
+Difference between content projection and component communication how to increase performance in angular.
+How to check memory leak
+Change detection mechanism and how to track it
+NGRX- working mechanism.
+How to detect state in state management
+How to configure angular app for multiple environment and API call(Building an Angular Application in various environments using angular-CLI and server.)
+-----------------------------------------------------------------------------------------
+Angular application bootstraping process
+How to create one object/instance for particular module level, that object/instance we can't access outside
+why chossing angular over other framework
+how to tell compiler it project in dev/local/prod mode
+How to configure angular app for multiple environment and API call(Building an Angular Application in various environments using angular-CLI and server.)
+NGRX
+unit Testing
+javascript is single threaded or multithreaded and  how javascript handles asynchronous call
+Code for Credit card masking ex: 1234567891234567   to ****-****-****-4567
+-------------------------------------------------------------------------------------------
+1. how to call API unsing js
+2. what is Authri and auth
+3. how to pass data from one component to another
+4. 
+------------------------------------------------------
+Scenario :
+ 
+We have a parent component which holds an object with name,age and some other properties.The object is passed to child component  as an input , which is displaying only name out of the object . 
+ 
+ 1. Over a period of time, name property in object is overridden by parent , Will this change have its effect in the child component.
+ 2. if i dont want to trigger the change to happen in child component , even if the parent component changes the object value . How do we achieve that.
+
+---------------------------------------------------
+debugging on production server
+aot and jit
+build process
+custom pipe - write logic for custom pipe for squaare root  
+custom directive - logic for background change 
+deployment process
+life cycle hooks
+directives
+pure and impure pipe
+how to secure the application
+business logic reusable.
+sourcemap .map file used
+----------------------------------------------------------------
+
+Life Cycle hooks
+interpolation in angular
+difference bt aot and jit
+@component decorator
+@component properties
+how to share data bt components
+how services used in data sharing in angular
+parameterized pipes
+how to add authentication for every url in angular
+what happens if we write footer tag above header tag 
+what happens if we use script tag within a template in angular
+----------------------------------------------------------------
+. Component to component interaction? Both for related & non-related components.
+2. life cycle hooks in angular?with explanation.  
+3. pure pipe vs impure pipes? with example.
+4. what is dynamic component in angular? and how to create.
+5. Component rendering.
+6. How to check memory leak
+7. Difference between content projection and component communication how to increase performance in angular.
+8. HTML5 API
+9.Change detection mechanism and how to track it.  
+10. javascript is single threaded or multithreaded and  how javascript handles asynchronous call
+11. NGRX- working mechanism.
+12. Difrrent storage - local, session, cookies related question.
+13. How to detect state in state management    
+14. What is Web-API and Rest API, available web-API   
+15. Css-grid-flex box  
+16. Lazy loading and realtime example with explanation.and how to build.
+17. design architecture layout.     
+18. Any challenges face in project 
+19. call base url on different server .
+20. If their multiple API’s coming how to handle this in JS?  
+21. How many ways we can inject services?
+------------------------------------------------
+0. function prototype in JS
+1. what is clouser
+2. function currying in JS
+3. first order function in JS
+4. promise
+5. observable
+6. subject
+------------------------------------------------------------
+1. Data Types in JS (primitive & non-primitive)
+2. Difference between primitive vs non primitive
+3.how primitive and non-primitive will behave with function (call by value and call by reference)
+4. Inheritence in javascript with constructor
+5. Clouser
+6. Scopes in js
+7. hoisting
+8. Event Loop
+9. Box model in css
+10. box-size
+11. what happened when we give Negative padding margin
+12. inline and inline-block
+13. scss feature
+14. :host-context() and 
+15. Schematic html and Other use cases of schematic tag
+16. what happened when Footer tag top of header tag
+17. Lifecycle angular in Deep level How lifecycle hook executed
+18. how lifecycle executed
+19. Change detection strategy
+-------------------------------------------------------------------
+MS
+Angular
+1. how to create a dynamic element (formArray / ) (if error validation)
+2. how to get data before componnet load (canResolve router guard)
+3. in one component when we made changes so how at same time it will reflect in other component(ngrx)
+3. interceptoer
+3. viewchild
+4. in one component there is two link, each tab having one form , in tab1 when without filling data will move to form2 so it should give error popup
+(custom validator / for that link "validator.form.valid or invalid" then open form or popup )
+5. spread operator vs rest parameter
+6. let var and const
+7. clouser
+8. didvide hours into minute in seconds
+9. lifecycle hooks and when it use
+10 directive and custom directive
+
+--> Project details
+--> explain functionality from project
+--> some code challange
+--> scenario 
+--> Angular, JS, html, css, unit testing, ngrx
+
+Client MS
+--> forms in angular
+--> DI
+--> symentic tag, uses
+--> how to achieve responsive web design
+--> Authentication and Authorization
+--> Router Guards
+--> Pipes vs Impure pipe
+--> Directive and component
+--> clouser
+--> find maximum product of two element from array (e.g. intone[] = {1,2,3,4,5} expected output = 20 i.e. 4x5)
+--> Change Detection Strategy
+--> let/const/var
+--> box model
+--> suppose ther is theree div1 div2 div3 so div1 should display first then div2 then div3 using z-index
+--> mixins in scss
+--> directive vs component
+--> event bubbling and event capturing and how to stop it
+--> stTimeout vs setTimeInterval
+--> Life Cycle hook and change detection strategy  like onpush
+--> 
+
+------------------------------------------------------------
+js program
+
+--> which one will be hoisted 
+
+funciton Person()
+var person = funciton(){}
+
+--> what it will do 
+const arr = [2,4,6];
+arr.push(7)
+--->  output?
+const arr = [2,4,6];
+arr[5] = 90;
+console.log(arr[3]);
+
+--> output?
+
+const arr = [10,20,30,40];
+for(var i=0;i<arr.length;i++){
+	setTimeout(function(){
+		console.log(arr[i])
+	},0)
+}
+
+
+
+
+
+-----------
+
+--> Angular 17 Feature
+
+1) new built-in control flow syntax @if @for @switch
+
+---------------------------------------
+
+Please add questions from your previous interviews here: 
+
+16-05-2024 : - morgan stanley Interview question Kedar Dalai 
+
+1.What is Subject? Explains all subject type 
+
+2.Expalin Life cycle hook in angular 
+
+3.what is cold and hot Observable? 
+
+4.How to share the in different component without using input and output decorator 
+
+5.what is the difference between observable and promise? 
+
+6. what is observer? 
+
+7.Explain mergemap, concatmap, switchmap 
+
+8.what is call apply bind function in JavaScript? 
+
+9.what is event bubbling and event capturing? 
+
+10.what is different between function deceleration and function expression 
+
+11.Expail the hoisting in JavaScript? 
+
+12.what is flexbox in css3? 
+
+16-05-2024: - Barclays Interview: Beera Dinesh Bala 
+
+1. What architecture would you follow for setting up a project??  
+
+2. How would you set up an angular project and what would you include?? 
+
+3. Explains services?? How would you create multiple copy/instances for services?? 
+
+4. Application have header component & Body component and they a service file where  API’s are called. Your page should not be loaded untill API calls are got response. 
+
+5. Explain some features of RXJS library. Forkjoin, mergemap, concatmap, switchmap, exhaustmap, subject, behavioursubject, replaysubject, debouncetime, wait untill. 
+
+6. what are observables?? 
+
+7. How to lazy load modules?? Open notepad and write code. 
+
+8. In which case do we use authguard & resolver?? 
+
+9. NGRX 
+
+10. Unit testing 
+
+11. Flexbox 
+
+ 
+
+15-05-2024: Manulife Life Insurance Company. Interviewer: Bavirisetti, Srinivas. Interviewee : Balla Syam 
+
+1. What is Bootstrapping  
+
+2. Explain ways of implementing ngOnChanges in component with 2 or more inputs  
+
+3. Why to use ngOndestroy => unsubscribe 
+
+4. What are different ways of creating Observables => Of, from, interval  
+
+5. Login which form will you use (Template driven or Reactive). Asked about a basic login form with two ways of doing it. 
+
+6. Unit testing complete basic code setup with explanation like provider, creating service and component instance, mocking data, creating spy etc. 
+
+7. Pure and Impure pipe difference with a scenario 
+
+8. Asked about how to do Deployments and Jenkins 
+
+9. Scenario based question on calling API that returns data not less than 10 seconds and to listen to any event from an input box 
+ngOnInit(){ 
+
+1)http call with some data which takes atleast 10 seconds to load 
+
+2) Listen to any event and get the value 
+
+}  
+
+What is the case if API gets failed. How step 2 will get execute and explain scenario 
+
+ 
+
+10) Difference between Subject and Behavior Subject 
+
+ 
+
+17-05-2024: Morgan.   Interviewer: Pal,Banshi  
+
+ 
+
+1.What is Angular? 
+
+ 
+
+2.Why is angular Framework used than other Framework? 
+
+ 
+
+3.What is Observer? 
+
+ 
+
+4.What is Pipe? 
+
+ 
+
+5.What is binding? 
+
+ 
+
+6.How to navigate between pages in Angular? 
+
+ 
+
+7.We have first name and Last name separated by pipe how to print only the first name in UI 
+
+ 
+
+8.Write syntax for date pipe for YYYY.MM.DD 
+
+ 
+
+9.Fibonacci series program 
+
+ 
+
+10.Create a feature in Angular application that binds employee data joining date to the view and allows interactions 
+
+ 
+
+11.Write a student form and when save or submitting the form display as grid to save services 
+
+ ---------------------------------------
+
+Topic Wise Questions
+
+es6 
+
+arrow functions ?
+let const var ?
+async await ?
+syncrohnous and async func ?
+setTimeOut() vs setImmediate()
+apply bind and call
+map filter reduce
+prototype
+optional chaining
+prototype inheretance
+closures
+hoisting
+
+
+
+normal fucn vs arrow ?
+
+es7
+
+** operator (math pow)
+-------------------------------
+diff 
+ -spread and rest   
+-array destructuring and obejct destructuring
+-deep copy and shallow copy
+
+what is ?
+dom model, real dom ,virtual dom ,shadow dom
+cookies ? session ? localstorage ?
+
+-------------------------------------------
+Typescript
+
+- Type safety ?
+
+- Rxjs operators ( how many operators)
+-typescript vs javascript
+-interaction between components
+-how to make interfaces (modal class)
+- how to make any property optional ( in interface)
+-what is a constructor 
+-ngOnit() vs constructor
+-observables , observers ,closures ,promises
+
+---------------------------------------------
+
+Angular
+Migartion process
+-Basic steps to be considered
+
+Whats is ?
+-dependency management
+-function deprecation (rewrite the code)
+-signals and lazy loading
+-analysis of higher load time
+-async pipe 
+-pipes (custome pipes)(impure an pure pipes)
+-bootstrapping
+-change detection strategy (onpush)
+-improve applicaiton performance
+-rrs (route resuse startegy)
+-ngModule()
+-reactive forms vs template driven forms
+-ngrx(working mechanism)
+-ssr vs csr
+-lifecycle methods
+-view encapsulation
+-data binding
+-dependency injection
+-ng zone
+-event emmitter 
+-hostlistners
+-how to detect state in event managment
+-how to create dynamic component
+-viewChild and contentChild
+-input and ouput operator
+-directive and custom directives
+-services
+-micro frontentend
+-mirocservices and monolithic arc
+-diff dependency and dev dependency
+-how to manage api for diff enviroments
+-sonar lint and eslint config for project
+-Auth guards
+-interceptors
+-routing in angular
+-token
+-http client setup(http client module)
+-----------------------------------------------
+
+Sate Management and Testing
+
+-Redux
+-Reducers 
+-state
+-actions
+-Connection btw three of them
+-store
+-structure of test suite
+- test bed
+-debuggin unit test case
+-spyOn
+-mocking data
+-steps for writing a test case
+-karma and jasmine
+-inject func
+-diff commands available for running test cases
+-xit block and it block
+-how to check the code coverage
+- test fucntions (describe , beforeAll, beforeEach , AfterAll ,Expect )
+- test cases vs test suite
+-jest , jasmine
+- mock a api call in jest ?
+- jest configuration for angular app
+
+Angular 15 ,16 17 new features ?
+
+
+//------------------------------------------
 --> Vanilla js
-------------------------------
+---------------
 1. what is js
 2. is js is single or multithreaded?
 3. hoisting in js
